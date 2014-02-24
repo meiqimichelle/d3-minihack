@@ -21,7 +21,7 @@ Hackpad is [here](https://hackpad.com/D3-Minihack-sx99prAn1Q7)
 VizOne attempts to show how much revenue overall is earned on Federal natural resource leases, what the major sectors are, and proportionally how much each contributes to total revenues yearly.
 
 Image with notes on interactions:
-![VizOne Notes](https://github.com/meiqimichelle/d3-minihack/blob/master/VizOne/sector_overview_notes.png)
+![VizOne Notes](https://raw.github.com/meiqimichelle/d3-minihack/master/VizOne/sector_overview_notes.png)
 
 ###VizTwo
 
