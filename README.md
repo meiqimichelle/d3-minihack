@@ -28,4 +28,4 @@ Image with notes on interactions:
 VizTwo attempts to show where that revenue goes and what it benefits. Also, it tries to show proportionally how much goes where, and how that changed over time.
 
 Image with notes on interactions:
-![VizOne Notes](https://raw.github.com/meiqimichelle/d3-minihack/blob/master/VizTwo/where_do_revenues_go_notes.png)
+![VizTwo Notes](https://raw.github.com/meiqimichelle/d3-minihack/master/VizTwo/where_do_revenues_go_notes.png)
