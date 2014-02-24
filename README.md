@@ -10,12 +10,21 @@ Welcome to our D3 Mini Hackathon
 Hackpad is [here](https://hackpad.com/D3-Minihack-sx99prAn1Q7)
 
 ##What's in this repo
-+ PSD and JPG files of suggested target visualizations
-+ PDF files of target visualizations with explanations of target interactions
-+ XSL files of related data
++ /Photoshop: PSD of all target visualizations
++ /VizOne: data, image and image with notes on interactions
++ /VizTwo: data, image and image with notes on interactions
 + *Coming soon* An HTML/CSS base to start from
 
 ##Explanation of vizualizations
 ###VizOne
 
-VizOne visual attempts to show how much revenue overall is earned on Federal natural resource leases, what the major sectors are, and proportionally how much each contributes to total revenues yearly.
+VizOne attempts to show how much revenue overall is earned on Federal natural resource leases, what the major sectors are, and proportionally how much each contributes to total revenues yearly.
+
+Image with notes on interactions:
+
+
+###VizTwo
+
+VizTwo attempts to show where that revenue goes and what it benefits. Also, it tries to show proportionally how much goes where, and how that changed over time.
+
+Image with notes on interactions:
