@@ -16,6 +16,9 @@ Hackpad is [here](https://hackpad.com/D3-Minihack-sx99prAn1Q7)
 + *Coming soon* An HTML/CSS base to start from
 
 ##Explanation of vizualizations
+
+Both vizualizations try to give some context to natural resource revenue from public lands in the U.S. (where it comes from, where it goes, etc).
+
 ###VizOne
 
 VizOne attempts to show how much revenue overall is earned on Federal natural resource leases, what the major sectors are, and proportionally how much each contributes to total revenues yearly.
