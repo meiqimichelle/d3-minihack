@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  path {
+    stroke: #cce;
+    stroke-width: 0.25px;
+    fill: #bbd;
+  }
+
+  .symbol {
+    fill: blue;
+    fill-opacity: .8;
+    stroke: #fff;
+  }
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+<script>
+  var width = 960,
+    height = 500;
+
+  var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  queue()
+    .defer(d3.csv, "https://docs.google.com/spreadsheet/pub?key=0AjPWVMj9wWa6dGw3b1c3ZHRSMW92UTJlNXRLTXZ0RUE&single=true&gid=0&output=csv")
+    .await(ready);
+
+  // load and display the data
+  function ready(error, fedroyaltydata) {
+    if (error) return console.log("there was an error loading the data: " + error);
+
+    /**
+    svg.selectAll("circle")
+      .data(workshops)
+      .enter().append("circle")
+      .attr("class", "symbol")
+      .attr("cx", function(d) {
+        return projection([d.longitude, d.latitude])[0];
+      })
+      .attr("cy", function(d) {
+        return projection([d.longitude, d.latitude])[1];
+      })
+      .attr("r", function(d) {
+        console.log(d.city)
+        console.log(d.number)
+        return 5;
+        //return d.number
+      });
+     **/
+  }
+
+</script>
+</body>
+</html>
