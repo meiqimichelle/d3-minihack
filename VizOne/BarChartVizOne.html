@@ -87,7 +87,7 @@ var tip = d3.tip()
   .attr('class', 'd3-tip')
   .offset([-10, 0])
   .html(function(d) {
-    return "<strong>Revenue:</strong> <span style='color:red'>" + d.frequency + "</span>";
+    return "<strong>Revenue:</strong> <span style='color:red'>" + d.revenue + "</span>";
   })
 
 var svg = d3.select("body").append("svg")
@@ -99,8 +99,8 @@ var svg = d3.select("body").append("svg")
 svg.call(tip);
 
 d3.tsv("YearlyTotalRevenue.tsv", type, function(error, data) {
-  x.domain(data.map(function(d) { return d.letter; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+  x.domain(data.map(function(d) { return d.year; }));
+  y.domain([0, d3.max(data, function(d) { return d.revenue; })]);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -115,19 +115,19 @@ d3.tsv("YearlyTotalRevenue.tsv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("Revenue");
 
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
+      .attr("x", function(d) { return x(d.year); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); })
+      .attr("y", function(d) { return y(d.revenue); })
+      .attr("height", function(d) { return height - y(d.revenue); })
       .on('mouseover', tip.show)
-      .on('mouseover',clickedOnABar)
       .on('mouseout', tip.hide)
+      .on('click', clickedOnABar)
 
 });
 
@@ -136,7 +136,7 @@ function clickedOnABar(d) {
 }
 
 function type(d) {
-  d.frequency = +d.frequency;
+  d.revenue = +d.revenue;
   return d;
 }
 
