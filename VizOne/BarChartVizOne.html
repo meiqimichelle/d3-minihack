@@ -131,8 +131,8 @@ d3.tsv("YearlyTotalRevenue.tsv", type, function(error, data) {
 
 });
 
-function clickedOnABar(event) {
-   alert("I got clicked "+event)
+function clickedOnABar(d) {
+   alert("I got clicked "+d.letter)
 }
 
 function type(d) {
