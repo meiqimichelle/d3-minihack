@@ -2654,7 +2654,7 @@ main
 .section .title { text-align: center; padding-top: 60px; padding-bottom: 20px; }
 .section .title h1 { color: white; font-size: 26px; font-weight: 700; }
 .section.about { padding: 80px 0 50px 0; position: relative; top: -45px; z-index: -1; }
-.section.about img { border: 1px solid black; }
+.section.about img { border: 1px solid white; border-radius: 3px; }
 .section.up45 { position: relative; top: -45px; }
 .section.dataBlock { vertical-align: middle; text-align: center; }
 .section.dataBlock .line { border-bottom: 2px solid black; margin-top: 140px; }
@@ -2673,7 +2673,7 @@ main
 .section.reportBlock .download { border: 1px solid #954a3c; padding-left: 8px; padding-bottom: 4px; background-color: #555251; }
 .section.reportBlock .download a { display: block; font-size: 1.4em; font-weight: 700; font-style: italic; color: white; }
 .section.reportBlock .download a:hover, .section.reportBlock .download a:focus { color: #10b3f7; }
-.section.putty { background-color: #e5e8e3; }
+.section.putty { background-color: #eaedf1; }
 .section.orange { background-color: #da5804; }
 .section.blue { background-color: #6ab5c3; }
 .section.brown { background-color: #954a3c; }
@@ -2745,7 +2745,7 @@ Sandbox styling for data and maps
 .tab-nav > li { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
 
 .disbTabSection { margin-bottom: 20px; padding: 20px 0 20px 0; }
-.disbTabSection.bgputty { background-color: #e5e8e3; }
+.disbTabSection.bgputty { background-color: #eaedf1; }
 .disbTabSection p { font-size: 1.2em; }
 .disbTabSection ul { list-style: disc inside; }
 .disbTabSection ul li { padding-bottom: 0; }

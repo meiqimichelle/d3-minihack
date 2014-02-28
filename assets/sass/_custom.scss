@@ -200,7 +200,8 @@ main
     top: -45px;
     z-index: -1;
       img {
-      border: 1px solid $black;
+      border: 1px solid $white;
+      border-radius: 3px;
       }
     }
     &.up45 {
