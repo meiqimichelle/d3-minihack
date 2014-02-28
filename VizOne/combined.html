@@ -23,8 +23,41 @@
   var gOrig = null;
   var gData = null;
 
-  var width = 300,                        //width
-    height = 300,                            //height
+  /* basic frame */
+  var margin = {top: 40, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+  /* bar chart parameters */
+
+  var formatPercent = d3.format(".0%");
+
+  var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+    .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+      return "<strong>Revenue:</strong> <span style='color:red'>" + d.revenue + "</span>";
+    })
+
+
+  /* pie chart parameters */
+  var pie_width = 300,                        //width
+    pie_height = 300,                            //height
     r = 100,                            //radius
     color = d3.scale.category20c();     //builtin range of colors
 
@@ -37,6 +70,7 @@
     if (error) return console.log("there was an error loading the data: " + error);
 
     gOrig = fedroyaltydata; // for debugging
+    console.log("======== data =========")
 
 /** format like this:
     data = [{"label":"one", "value":20},
@@ -70,12 +104,63 @@
     console.log("pie data for 2003", data)
     gData = data; // for debugging
 
+
+    console.log("======== bar chart =========")
+
+    var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.call(tip);
+
+    x.domain(revenue_data.map(function(d) { return d.year; }));
+    y.domain([0, d3.max(revenue_data, function(d) { return d.revenue; })]);
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+    svg.append("g")
+      .attr("class", "y axis")
+      /*    .call(yAxis)
+       .append("text") */
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Revenue");
+
+    svg.selectAll(".bar")
+      .data(revenue_data)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.revenue); })
+      .attr("height", function(d) { return height - y(d.revenue); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+      .on('click', clickedOnABar)
+
+
+
+
+
+
+
+
+
+
+    console.log("======== pie chart =========")
     console.log("create the SVG element inside the <body>")
-    var vis = d3.select("body")
-      .append("svg:svg")              // create the SVG element inside the <body>
+    var vis = svg
+      .append("g")              // create a group (g element) within the svg
       .data([data])                   //associate our data with the document
-      .attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-      .attr("height", height)
+      .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+      .attr("height", pie_height)
       .append("svg:g")                //make a group to hold our pie chart
       .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
 
@@ -115,6 +200,10 @@
       .text(function(d, i) { return data[i].label; });        //get the label from our original data array
 
 
+  }
+
+  function clickedOnABar(d) {
+    alert("I got clicked "+d.year)
   }
 
 </script>
