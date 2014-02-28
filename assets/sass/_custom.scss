@@ -139,6 +139,11 @@ nav
 /*============================================
 main
 ============================================*/
+.borderViz {
+  border: 1px solid $white;
+  border-radius: 3px;
+}    
+
 .section {
     overflow: hidden;
     &.top {
@@ -199,7 +204,7 @@ main
     position: relative;
     top: -45px;
     z-index: -1;
-      img {
+      xximg {
       border: 1px solid $white;
       border-radius: 3px;
       }

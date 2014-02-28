@@ -2643,6 +2643,8 @@ xmargin-left:41.5%;
 /*============================================
 main
 ============================================*/
+.borderViz { border: 1px solid white; border-radius: 3px; }
+
 .section { overflow: hidden; }
 .section.top { padding: 20px 20px 80px 20px; background-image: url(assets/img/oil_blur.jpg); height: 400px; xxmargin-top: 230px; color: white; }
 .section.top h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #b32d27; padding-left: 20px; margin-top: 70px; color: white; }
@@ -2654,7 +2656,7 @@ main
 .section .title { text-align: center; padding-top: 60px; padding-bottom: 20px; }
 .section .title h1 { color: white; font-size: 26px; font-weight: 700; }
 .section.about { padding: 80px 0 50px 0; position: relative; top: -45px; z-index: -1; }
-.section.about img { border: 1px solid white; border-radius: 3px; }
+.section.about xximg { border: 1px solid white; border-radius: 3px; }
 .section.up45 { position: relative; top: -45px; }
 .section.dataBlock { vertical-align: middle; text-align: center; }
 .section.dataBlock .line { border-bottom: 2px solid black; margin-top: 140px; }
