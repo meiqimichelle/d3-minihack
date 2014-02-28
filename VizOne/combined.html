@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  path {
+    stroke: #cce;
+    stroke-width: 0.25px;
+    fill: #bbd;
+  }
+
+  .symbol {
+    fill: blue;
+    fill-opacity: .8;
+    stroke: #fff;
+  }
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+<script>
+  // nice pie chart example: https://gist.github.com/enjalot/1203641
+  var gOrig = null;
+  var gData = null;
+
+  var width = 300,                        //width
+    height = 300,                            //height
+    r = 100,                            //radius
+    color = d3.scale.category20c();     //builtin range of colors
+
+  queue()
+    .defer(d3.csv, "https://docs.google.com/spreadsheet/pub?key=0AjPWVMj9wWa6dGw3b1c3ZHRSMW92UTJlNXRLTXZ0RUE&single=true&gid=0&output=csv")
+    .await(ready);
+
+  // load and display the data
+  function ready(error, fedroyaltydata) {
+    if (error) return console.log("there was an error loading the data: " + error);
+
+    gOrig = fedroyaltydata; // for debugging
+
+/** format like this:
+    data = [{"label":"one", "value":20},
+      {"label":"two", "value":50},
+      {"label":"three", "value":30}];
+**/
+    pie_data = [];
+    revenue_data = []
+    for (row_index in fedroyaltydata) {
+      row = fedroyaltydata[row_index];
+      year = row["Year"]
+      pie_data[year] = [];
+      for (column_name in row) {
+        field = row[column_name];
+        field = field.substring(1); // remove leading $
+        field = +field;             // cast to a number
+
+        if (column_name == "Grand Total") {
+          revenue_data.push({year:year, revenue:field});
+        }
+
+        if (column_name != "Year" && column_name != "Grand Total") {
+          pie_data[year].push({label:column_name, value:field});
+        }
+      }
+    }
+
+    // for now let's just work with a single year
+    data = pie_data[2003];
+    console.log("revenue", revenue_data)
+    console.log("pie data for 2003", data)
+    gData = data; // for debugging
+
+    console.log("create the SVG element inside the <body>")
+    var vis = d3.select("body")
+      .append("svg:svg")              // create the SVG element inside the <body>
+      .data([data])                   //associate our data with the document
+      .attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+      .attr("height", height)
+      .append("svg:g")                //make a group to hold our pie chart
+      .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+
+    console.log("create <path> elements for us using arc data")
+
+    var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
+      .outerRadius(r);
+
+    console.log("create arc data for us given a list of values")
+
+    var pie = d3.layout.pie()           //this will create arc data for us given a list of values
+      .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
+
+    console.log("something")
+    var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
+      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+      .enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
+      .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
+      .attr("class", "slice");    //allow us to style things in the slices (like text)
+
+    console.log("set the color for each slice")
+
+    arcs.append("svg:path")
+      .attr("fill", function(d, i) { console.log(i, color(i)); return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+      .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+
+    console.log("add a label to each slice")
+
+    arcs.append("svg:text")                                     //add a label to each slice
+      .attr("transform", function(d) {                    //set the label's origin to the center of the arc
+        //we have to make sure to set these before calling arc.centroid
+        d.innerRadius = 0;
+        d.outerRadius = r;
+        return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
+      })
+      .attr("text-anchor", "middle")                          //center the text on it's origin
+      .text(function(d, i) { return data[i].label; });        //get the label from our original data array
+
+
+  }
+
+</script>
+</body>
+</html>
