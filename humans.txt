@@ -1,0 +1,24 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Michelle Hertzfeld -- Designer and Developer -- @meiqimichelle
+
+# THANKS
+
+    Many helpful instructions and blog posts on teh interwebz!
+
+# TECHNOLOGY COLOPHON
+
+    Standards: HTML5, CSS3
+    Components: 
+    Gumby Framework
+        Digital Surgeons
+        Twitter: @digitalsurgeons
+        Twitter: @gumbycss
+        Web: www.digitalsurgeons.com
+        Web: www.gumbyframework.com
+    Software: Sass, Compass
+    Typography: 
+                                             

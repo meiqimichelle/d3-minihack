@@ -1,0 +1,109 @@
+<!-- Grab Google CDN's jQuery, fall back to local if offline -->
+<!-- 2.0 for modern browsers, 1.10 for .oldie -->
+<script>
+var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/soldies/g));
+if(!oldieCheck) {
+  document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
+} else {
+  document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
+}
+</script>
+<script>
+if(!window.jQuery) {
+  if(!oldieCheck) {
+    document.write('<script src="{{ site.url }}/assets/js/libs/jquery-2.0.2.min.js"><\/script>');
+  } else {
+    document.write('<script src="{{ site.url }}/assets/js/libs/jquery-1.10.1.min.js"><\/script>');
+  }
+}
+</script>
+  
+	<!--
+	Include gumby.js followed by UI modules followed by gumby.init.js
+	Or concatenate and minify into a single file -->
+	<script gumby-touch="{{ site.url }}/assets/js/libs" src="{{ site.url }}/assets/js/libs/gumby.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.retina.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.fixed.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.skiplink.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.toggleswitch.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.checkbox.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.radiobtn.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.tabs.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/gumby.navbar.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/ui/jquery.validation.js"></script>
+	<script src="{{ site.url }}/assets/js/libs/gumby.init.js"></script>
+    
+    <!-- <script src="{{ site.url }}/assets/js/libs/Chart.min.js"></script> -->
+
+	<!--
+	gumby.min.js contains gumby.js, all UI modules and gumby.init.js
+	<script src="js/libs/gumby.min.js"></script> -->
+	<script src="{{ site.url }}/assets/js/plugins.js"></script>
+	<script src="{{ site.url }}/assets/js/main.js"></script>
+
+
+    <script src="{{ site.url }}/assets/js/classie.js"></script>
+    <script src="{{ site.url }}/assets/js/animateOnScroll.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+	<!-- Change UA-XXXXX-X to be your site's ID -->
+	<!--<script>
+	window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
+	Modernizr.load({
+	  load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
+	});
+	</script>-->
+
+	<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+	   chromium.org/developers/how-tos/chrome-frame-getting-started -->
+	<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+
+
+
+
+
+
+<script>
+var width = 960,
+    height = 500;
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var chart = d3.select(".chart")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.tsv("assets/data/data.tsv", type, function(error, data) {
+  y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+  var barWidth = width / data.length;
+
+  var bar = chart.selectAll("g")
+      .data(data)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+  bar.append("rect")
+      .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { return height - y(d.value); })
+      .attr("width", barWidth - 1);
+
+  bar.append("text")
+      .attr("x", barWidth / 2)
+      .attr("y", function(d) { return y(d.value) + 3; })
+      .attr("dy", ".75em")
+      .text(function(d) { return d.value; });
+});
+
+function type(d) {
+  d.value = +d.value; // coerce to number
+  return d;
+}
+}
+</script>

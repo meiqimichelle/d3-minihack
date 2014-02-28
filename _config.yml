@@ -1,0 +1,15 @@
+name: Prototype USEITI Report and Site
+markdown:    maruku
+markdown_ext:  markdown,mkd,mkdn,md
+
+safe: true
+lsi: false
+pygments: true
+auto: true
+
+#url:             http://meiqimichelle.github.io/eiti_superbeta
+url:              http://localhost:4000
+# Comment out url when working locally to resolve base urls correctly or change to http://localhost:4000
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "_site", "assets/.sass-cache/"]

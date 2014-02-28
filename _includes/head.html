@@ -1,0 +1,94 @@
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<title>{{ site.title }}{% if page.title %} &#8211; {{ page.title }}{% endif %}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
+<meta name="author" content="humans.txt">
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="{{ site.url }}/assets/css/gumby.css">
+
+<!-- Webfonts
+================================================== -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic' rel='stylesheet' type='text/css'>
+
+<meta http-equiv="cleartype" content="on">
+
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- JS
+================================================== -->
+<script src="{{ site.url }}/assets/js/libs/modernizr-2.6.2.min.js"></script>
+
+<!-- Favicons
+================================================== -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="{{ site.url }}/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="{{ site.url }}/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="{{ site.url }}/img/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ site.url }}/img/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ site.url }}/img/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.url }}/img/apple-touch-icon-144x144-precomposed.png">
+
+
+<!-- CartoDB API dependencies -->
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" />
+    
+    <style>
+      #layer_selector {
+        margin: 120px 0 0 20px;
+        padding: 0;
+      }
+
+        #layer_selector h1 {
+        font-size: 1em;
+      }
+
+        
+      #layer_selector ul {
+        padding: 0; margin: 0;
+        list-style-type: none;
+      }
+
+      #layer_selector li {
+        border-bottom: 1px solid #999;
+        padding: 7px 25px;
+        font-family: "Helvetica", Arial;
+        font-size: 13px;
+        color: #444;
+        cursor: auto;
+      }
+
+      #layer_selector li:hover {
+        background-color: #F0F0F0;
+        cursor: pointer;
+      }
+
+      #layer_selector li.selected {
+        background-color: #6ab5c3;
+      }
+        div.cartodb-popup div.cartodb-popup-content-wrapper {
+            width: inherit;
+            max-width: inherit;
+        }
+    </style>
+
+
+    <link rel="exhibit/data" href="{{ site.url }}/assets/data/disb_03_13.json" />
+    <script src="http://static.simile.mit.edu/exhibit/api-2.0/exhibit-api.js"></script>
+
