@@ -2585,6 +2585,9 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 
 .ie9 .radio.checked i, .ie9 .checkbox.checked i { top: 0; }
 
+/*============================================
+utility
+============================================*/
 .pad50RL { padding-left: 70px; padding-right: 70px; }
 
 .textRight { text-align: right; }
@@ -2592,61 +2595,12 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .textCenter { text-align: center; }
 
 /*============================================
-nav
-============================================*/
-.fixNav { position: fixed; top: 0; left: 0; width: 100%; background: white; border-bottom: 2px solid black; z-index: 10000; height: 230px; padding-top: 50px; overflow: hidden; -webkit-transition: height 0.3s; -moz-transition: height 0.3s; transition: height 0.3s; }
-
-.fixNavWrapper { width: 90%; max-width: 69em; margin: 0 auto; padding: 0 1.875em; }
-
-.animate { -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
-.animate img { width: 100%; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
-
-.shrink { height: 70px; padding-top: 11px; }
-.shrink p { display: none; }
-.shrink img { width: 60%; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; }
-.shrink .nav { top: -40px; }
-
-.logo { position: relative; }
-.logo p { font-size: 18px; font-weight: 700; line-height: 1.2em; padding-top: .7em; }
-
-.nav { position: relative; top: -18px; }
-.nav ul { margin-bottom: 0; }
-.nav ul li { font-size: 1.4em; font-weight: 700; text-align: center; }
-.nav ul li a { color: black; }
-
-.navStyle, .what, .how, .data, .reports, .current { border-bottom: 5px solid #b32d27; }
-.navStyle:hover, .what:hover, .how:hover, .data:hover, .reports:hover, .current:hover, .navStyle:focus, .what:focus, .how:focus, .data:focus, .reports:focus, .current:focus { border-bottom-width: 11px; }
-
-.what { border-color: #b32d27; }
-
-.how { border-color: #da5804; }
-
-.data { border-color: #6ab5c3; }
-
-.reports { border-color: #954a3c; }
-
-.current { border-bottom-width: 11px; /*&::after {
-content: ".";
-xdisplay: block;
-width: 0px;
-height: 0px;
-border-style: solid;
-border-width: 15.6px 9px 0 9px;
-border-color: #007bff transparent transparent transparent;*/ /*border-bottom-width: 3px;
-border-bottom-style: solid;
-border-bottom-color: inherit;*/ /*position: relative;
-xtop: 22px;
-xleft: 300px;
-xmargin-left:41.5%;
-}*/ }
-
-/*============================================
 main
 ============================================*/
 .borderViz { border: 1px solid white; border-radius: 3px; }
 
 .section { overflow: hidden; }
-.section.top { padding: 20px 20px 80px 20px; background-image: url(assets/img/oil_blur.jpg); height: 400px; xxmargin-top: 230px; color: white; }
+.section.top { padding: 20px 20px 80px 20px; background-image: url(assets/img/oil_blur.jpg); height: 400px; color: white; }
 .section.top h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #b32d27; padding-left: 20px; margin-top: 70px; color: white; }
 .section.top .intro { background-color: rgba(0, 0, 0, 0.4); margin-top: -10px; margin-left: 20px; padding: 30px; }
 .section.top p + p { border-bottom: 1px solid #0793cd; padding-bottom: 30px; }
@@ -2689,14 +2643,6 @@ main
 .leader { font-weight: 700; font-size: 18px; }
 
 .orange { color: #da5804; }
-
-/*============================================
-how
-============================================*/
-.section { overflow: hidden; }
-.section.top { padding: 20px 20px 80px 20px; background-image: url(assets/img/oil_blur.jpg); height: 400px; xxmargin-top: 230px; color: white; }
-.section.top.howProcess h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #da5804; padding-left: 20px; margin-top: 70px; color: white; }
-.section.reportsHere h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #954a3c; padding-left: 20px; margin-top: 70px; color: white; }
 
 /*============================================
 data and information

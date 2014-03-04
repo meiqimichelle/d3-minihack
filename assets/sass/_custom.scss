@@ -1,3 +1,6 @@
+/*============================================
+utility
+============================================*/
 .pad50RL {
   padding-left: 70px;
   padding-right: 70px;
@@ -7,132 +10,6 @@
 }
 .textCenter {
   text-align: center;
-}
-
-/*============================================
-nav
-============================================*/
-
-.fixNav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: $white;
-  border-bottom: 2px solid $black;
-  z-index: 10000;
-  height: 230px;
-  padding-top: 50px;
-  overflow: hidden;
-  -webkit-transition: height 0.3s;
-  -moz-transition: height 0.3s;
-  transition: height 0.3s;
-}
-
-.fixNavWrapper {
-  width: 90%;
-  max-width: 69em;
-  margin: 0 auto;
-  padding: 0 1.875em;
-}
-
-.animate {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s; 
-  img { 
-  width: 100%;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-  }
-}
-
-.shrink {
-  height: 70px;
-  padding-top: 11px;
-  p {
-  display: none;
-  }
-  img {
-  width: 60%;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s; 
-  }
-  .nav {
-  top: -40px;
-  }
-}
-
-.logo {
-  position: relative;
-  p {
-    font-size: $med;
-    font-weight:700;
-    line-height: 1.2em;
-    padding-top: .7em;
-  }
-}
-
-.nav {
-  position: relative;
-  top: -18px;
-  ul {
-    margin-bottom:0;
-    li {
-    font-size: 1.4em;
-    font-weight:700;
-    text-align:center;
-    a {
-    color: $black;
-      &:hover, &:focus {
-      }
-    }
-  }
-}
-}
-.navStyle {
-  border-bottom: 5px solid $red;
-  &:hover, &:focus {
-    border-bottom-width: 11px;
-}
-}
-.what {
-  @extend .navStyle;
-  border-color: $red;
-}
-.how {
-  @extend .navStyle;
-  border-color: $orange;
-}
-.data {
-  @extend .navStyle;
-  border-color: $blue;
-}
-.reports {
-  @extend .navStyle;
-  border-color: $brown;
-}
-.current {
-  @extend .navStyle;
-  border-bottom-width: 11px;
-  /*&::after {
-  content: ".";
-  xdisplay: block;
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 15.6px 9px 0 9px;
-  border-color: #007bff transparent transparent transparent;*/
-  /*border-bottom-width: 3px;
-  border-bottom-style: solid;
-  border-bottom-color: inherit;*/
-  /*position: relative;
-  xtop: 22px;
-  xleft: 300px;
-  xmargin-left:41.5%;
-  }*/
 }
 
 
@@ -150,7 +27,6 @@ main
     padding: 20px 20px 80px 20px;
     background-image:url(assets/img/oil_blur.jpg);
     height: 400px;
-    xxmargin-top: 230px;
     color: $white;
         h1 {
         font-size: 2.16em;
@@ -331,42 +207,7 @@ main
   color: $orange;
 }
 
-/*============================================
-how
-============================================*/
 
-.section {
-    overflow: hidden;
-    &.top {
-    padding: 20px 20px 80px 20px;
-    background-image:url(assets/img/oil_blur.jpg);
-    height: 400px;
-    xxmargin-top: 230px;
-    color: $white;
-    &.howProcess {
-        h1 {
-        font-size: 2.16em;
-        line-height: 1em;
-        font-weight:700;
-        background-color: $orange;
-        padding-left: 20px;
-        margin-top: 70px;
-        color: $white;
-        }
-    }
-    }
-    &.reportsHere {
-        h1 {
-        font-size: 2.16em;
-        line-height: 1em;
-        font-weight:700;
-        background-color: $brown;
-        padding-left: 20px;
-        margin-top: 70px;
-        color: $white;
-        }
-    }
-}
 
 
 

@@ -1,9 +1,9 @@
 ---
 layout: base
 title: Home
-description: This is a sample beta site and report for USEITI.
+description: This is a sample beta site for Federal natural resource revenues.
 ---
-<div ex:role="collection" id="ONRRdata" ex:itemTypes="Disbursement"></div>
+
     <div id="main" role="main" itemscope itemprop="mainContentOfPage">
         <div class="section top">
             <div class="row">
@@ -40,6 +40,14 @@ description: This is a sample beta site and report for USEITI.
             <div class="eight columns aboutText pad50right">
               <img src="{{ site.url }}/assets/img/viz_sample.png">
             </div>
+          </div>
+          <div class="row">
+          	<div class="eight columns">
+          		<iframe width="100%" height="500"
+				    src="http://cloud.highcharts.com/embed/asipok/1"
+				    style="border: 0px;">
+				</iframe>
+          	</div>
           </div>
         </div>
       
@@ -105,5 +113,4 @@ description: This is a sample beta site and report for USEITI.
               </div>
             </div>
         </div>-->
-      </div> <!-- Added this div to pop Exhibit stuff out of Gumby positioning, might need to remove -->
 {% include footer.html %}
