@@ -25,7 +25,18 @@ Light gray: #929497
 
 */
 
+pie_chart_colors = new Array(5);
+pie_chart_colors[0] = '#69d6c5';
+pie_chart_colors[1] = '#906884';
+pie_chart_colors[2] = '#aeab97';
+pie_chart_colors[3] = '#fc615e';
+pie_chart_colors[4] = '#00a0d9';
 
+// This makes sure we won't run off the end if we end up with more categories
+// (Though a color will get reused!)
+function get_pie_chart_color(i) {
+    return pie_chart_colors[i % pie_chart_colors.length];
+}
 
   // nice pie chart example: https://gist.github.com/enjalot/1203641
   var gOrig = null;
@@ -188,7 +199,8 @@ function render_pie_chart(local_pie_data) {
     console.log("set the color for each slice")
 
     arcs.append("svg:path")
-      .attr("fill", function(d, i) { console.log(i, color(i)); return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+//      .attr("fill", function(d, i) { console.log(i, color(i)); return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+      .attr("fill", function(d, i) { console.log(i, get_pie_chart_color(i)); return get_pie_chart_color(i); } ) //set the color for each slice to be chosen from the color function defined above
       .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
 
     console.log("add a label to each slice")
