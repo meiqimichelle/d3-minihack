@@ -5,183 +5,210 @@ utility
   padding-left: 70px;
   padding-right: 70px;
 }
+.pad50B {
+  padding-bottom: 50px;
+}
 .textRight {
   text-align: right;
 }
 .textCenter {
   text-align: center;
 }
+.borderViz {
+  border: 1px solid $white;
+  border-radius: 3px;
+}
 
 
 /*============================================
 main
 ============================================*/
-.borderViz {
-  border: 1px solid $white;
-  border-radius: 3px;
-}    
+
+
+.small {
+    position: relative;
+    top: -13px;
+    font-size: .7em; /* refactor this into a function -- want it to be a percentage smaller than the surrounding text rather than hard-coded */
+  }
+.large {
+    position: relative;
+    font-size: 2em; 
+}
 
 .section {
-    overflow: hidden;
-    &.top {
-    padding: 20px 20px 80px 20px;
-    background-image:url(assets/img/oil_blur.jpg);
-    height: 400px;
-    color: $white;
-        h1 {
-        font-size: 2.16em;
-        line-height: 1em;
-        font-weight:700;
-        background-color: $red;
-        padding-left: 20px;
-        margin-top: 70px;
-        color: $white;
-        }
-        .intro {
-        background-color: transparentize($black, 0.6);
-        margin-top: -10px;
-        margin-left: 20px;
-        padding: 30px;
-        }
-        p+p {
-        border-bottom: 1px solid $eitiblue;
-        padding-bottom: 30px;
-        }
-        .learn {
-        border: 1px solid $eitiblue;
-        padding-left: 17px;
-        padding-bottom: 4px;
-        margin-top: -28px;
-        background-color: $black;
-          a {
-          display: block;
-          font-size: 1.4em;
-          font-weight: 700;
-          font-style: italic;
-          color: $white;
-          &:hover, &:focus {
-          color: lighten($eitiblue, 10%);
-          }
-          }
-        }
+    overflow: hidden; }
+    
+.top {
+padding: 20px 20px 80px 20px;
+background: url(../img/oil_blur.jpg) no-repeat top center fixed;
+height: 400px;
+color: $white;
+    .intro {
+    background-color: transparentize($black, 0.6);
+    margin-top: -20px;
+    margin-left: 20px;
+    padding: 30px;
     }
-    .title {
-    text-align: center;
-    padding-top: 60px;
-    padding-bottom: 20px;
-      h1 {
-      color: $white;
-      font-size: $large;
-      font-weight: 700;
-      }
-    }
-    &.about {
-    padding: 80px 0 50px 0;
-    position: relative;
-    top: -45px;
-    z-index: -1;
-      xximg {
-      border: 1px solid $white;
-      border-radius: 3px;
-      }
-    }
-    &.up45 {
-      position: relative;
-      top: -45px;
-    }
-    &.dataBlock {
-    vertical-align: middle;
-    text-align: center;
-      .line {
-      border-bottom: 2px solid $black;
-      margin-top: 140px;
-      }
-      .circle {
-      z-index: 50;
-      margin-top: -130px;
-      margin-bottom: 60px;
-      height: 250px;
-      width: 250px;
-      background-color: $blue;
-      border: 2px solid $black;
-      border-radius: 50%;
-        img {
-          width: 80px;
-        }
-        &:hover, &:focus {
-        height: 250px;
-        width: 250px;
-        border-radius: 50%;
-        border: 2px solid $black;
-        background-color: lighten($blue, 10%);
-        }
-        a {
-        display: block;
-        }
-      }
-      h2 {
-      padding-top: 20%;
-      font-size: $large;
-      color: $white;
-      font-weight:700;
-      padding-right: 15px;
-      padding-left: 15px;
-      }
-      .graph h2 {
-      padding-top: 30%;
-      }
-    }
-    &.reportBlock {
-    padding: 50px 0 50px 0;
-    h1, h2 {
-      font-size: $large;
-      font-weight:700;
-    }
-    .reportYears {
-    text-align: right;
-    padding-right: 20px;
     h1 {
-      padding-bottom: 20px;
+      display: inline-block;
+      color: $white;
+      font-size: 2.16em;
+      line-height: 1em;
+      font-weight:700;
+      background-color: $red;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 10px;
     }
+    p+p {
+    border-bottom: 1px solid $eitiblue;
+    padding-bottom: 30px;
     }
-    .reportSummary {
-    background-color: $gray;
-    padding: 30px 40px 30px 40px;
-      p {
-      line-height:1.2em;
-      font-style: italic;
-      }
-    }
-    .download {
-        border: 1px solid $brown;
-        padding-left: 8px;
-        padding-bottom: 4px;
-        background-color: darken($gray, 30%);
-          a {
-          display: block;
-          font-size: 1.4em;
-          font-weight: 700;
-          font-style: italic;
-          color: $white;
-          &:hover, &:focus {
-          color: lighten($eitiblue, 10%);
-          }
-          }
-      }
-      }
-    &.putty {
-    background-color: $putty;
-    }
-    &.orange {
-    background-color: $orange;
-    }
-    &.blue {
-    background-color: $blue;
-    }
-    &.brown {
-    background-color: $brown;
-    }
+    // .learn {
+    // border: 1px solid $eitiblue;
+    // padding-left: 17px;
+    // padding-bottom: 4px;
+    // margin-top: -28px;
+    // background-color: $black;
+    //   a {
+    //   display: block;
+    //   font-size: 1.4em;
+    //   font-weight: 700;
+    //   font-style: italic;
+    //   color: $white;
+    //   &:hover, &:focus {
+    //   color: lighten($eitiblue, 10%);
+    //   }
+    //   }
+    // }
 }
+.title {
+text-align: center;
+padding-top: 60px;
+padding-bottom: 20px;
+  h1 {
+  color: $white;
+  font-size: $large;
+  font-weight: 700;
+  }
+}
+
+
+.about {
+padding: 40px 0 50px 0;
+position: relative;
+top: -45px;
+  h1 {
+    font-size: $large;
+    font-weight: 800;
+    line-height: 1;
+  }
+  h2 {
+    display: block;
+    color: #4d4b4b;
+    font-weight: 800;
+    font-size: $med;
+    font-weight: 800;
+    border-bottom: 2px solid #4d4b4b;
+  }
+}
+.up45 {
+  position: relative;
+  top: -45px;
+}
+.dataBlock {
+vertical-align: middle;
+text-align: center;
+  .line {
+  border-bottom: 2px solid $black;
+  margin-top: 140px;
+  }
+  .circle {
+  z-index: 50;
+  margin-top: -130px;
+  margin-bottom: 60px;
+  height: 250px;
+  width: 250px;
+  background-color: $blue;
+  border: 2px solid $black;
+  border-radius: 50%;
+    img {
+      width: 80px;
+    }
+    &:hover, &:focus {
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    border: 2px solid $black;
+    background-color: lighten($blue, 10%);
+    }
+    a {
+    display: block;
+    }
+  }
+  h2 {
+  padding-top: 20%;
+  font-size: $large;
+  color: $white;
+  font-weight:700;
+  padding-right: 15px;
+  padding-left: 15px;
+  }
+  .graph h2 {
+  padding-top: 30%;
+  }
+}
+.reportBlock {
+padding: 50px 0 50px 0;
+h1, h2 {
+  font-size: $large;
+  font-weight:700;
+}
+.reportYears {
+text-align: right;
+padding-right: 20px;
+h1 {
+  padding-bottom: 20px;
+}
+}
+.reportSummary {
+background-color: $gray;
+padding: 30px 40px 30px 40px;
+  p {
+  line-height:1.2em;
+  font-style: italic;
+  }
+}
+.download {
+    border: 1px solid $brown;
+    padding-left: 8px;
+    padding-bottom: 4px;
+    background-color: darken($gray, 30%);
+      a {
+      display: block;
+      font-size: 1.4em;
+      font-weight: 700;
+      font-style: italic;
+      color: $white;
+      &:hover, &:focus {
+      color: lighten($eitiblue, 10%);
+      }
+      }
+  }
+  }
+.putty {
+background-color: $putty;
+}
+.orange {
+background-color: $orange;
+}
+.blue {
+background-color: $blue;
+}
+.brown {
+background-color: $brown;
+}
+
 .arrows {
   margin-top: -23px;
   img {
@@ -215,213 +242,111 @@ main
 data and information
 ============================================*/
 
-.section {
-    overflow: hidden;
-    &.top {
-    padding: 20px 20px 80px 20px;
-    background-image:url(../img/oil_blur.jpg);
-    xxmargin-top: 230px;
-    color: $white;
-    &.dataInfo{
-        height: 400px;
-        position: relative;
-        z-index: -1;
-        h1 {
-        font-size: 2.16em;
-        line-height: 1em;
-        font-weight:700;
-        background-color: $blue;
-        padding-left: 20px;
-        margin-top: 70px;
-        color: $white;
-        }
-    }
-    }
-    .title.dataInfo {
-    padding-top: 30px;
-    padding-bottom: 20px;
-      h1 {
-      color: $black;
-      }
-    }
+// .section {
+//     overflow: hidden;
+//     &.top {
+//     padding: 20px 20px 80px 20px;
+//     background-image:url(../img/oil_blur.jpg);
+//     xxmargin-top: 230px;
+//     color: $white;
+//     &.dataInfo{
+//         height: 400px;
+//         position: relative;
+//         z-index: -1;
+//         h1 {
+//         font-size: 2.16em;
+//         line-height: 1em;
+//         font-weight:700;
+//         background-color: $blue;
+//         padding-left: 20px;
+//         margin-top: 70px;
+//         color: $white;
+//         }
+//     }
+//     }
+//     .title.dataInfo {
+//     padding-top: 30px;
+//     padding-bottom: 20px;
+//       h1 {
+//       color: $black;
+//       }
+//     }
     
-}
+// }
 
-.dataSubHead {
-    vertical-align: middle;
-    text-align: center;
-    background-color: $blue;
-    .circle {
-    z-index: 50;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    height: 250px;
-    width: 250px;
-    background-color: $blue;
-    border: 2px solid $black;
-    border-radius: 50%;
-      img {
-        width: 80px;
-      }
-      &:hover, &:focus {
-      height: 250px;
-      width: 250px;
-      border-radius: 50%;
-      border: 2px solid $black;
-      background-color: lighten($blue, 10%);
-      }
-      a {
-      display: block;
-      }
-    }
-    ul {
-    width: 250px;
-      li a {
-      display: block;
-      padding: 7px;
-      margin: auto 15% auto 17%;
-      font-size: $med;
-      color: $white;
-      font-weight:700;
-      background-color: lighten($blue, 10%);
-      &:hover, &:focus {      
-      background-color: lighten($blue, 5%);
-      }
-      }
-    }
-    h2 {
-      padding-top: 20%;
-      font-size: $large;
-      color: $white;
-      font-weight:700;
-      padding-right: 15px;
-      padding-left: 15px;
-      }
-    .graph h2 {
-    padding-top: 30%;
-      }
-    .current {
-      height: 250px;
-      width: 250px;
-      border-radius: 50%;
-      border: 2px solid $black;
-      background-color: lighten($blue, 10%);
-      }
-}
-.move {
-  margin-top: -130px;
-}
-.mapBlock {
-  margin-top: 30px;
-  margin-bottom: 60px;
-  h1 {
-    font-size: 3em;
-  }
-  h2 {
-    font-size: 2em;
-  }
-}
+// .dataSubHead {
+//     vertical-align: middle;
+//     text-align: center;
+//     background-color: $blue;
+//     .circle {
+//     z-index: 50;
+//     margin-top: 0px;
+//     margin-bottom: 10px;
+//     height: 250px;
+//     width: 250px;
+//     background-color: $blue;
+//     border: 2px solid $black;
+//     border-radius: 50%;
+//       img {
+//         width: 80px;
+//       }
+//       &:hover, &:focus {
+//       height: 250px;
+//       width: 250px;
+//       border-radius: 50%;
+//       border: 2px solid $black;
+//       background-color: lighten($blue, 10%);
+//       }
+//       a {
+//       display: block;
+//       }
+//     }
+//     ul {
+//     width: 250px;
+//       li a {
+//       display: block;
+//       padding: 7px;
+//       margin: auto 15% auto 17%;
+//       font-size: $med;
+//       color: $white;
+//       font-weight:700;
+//       background-color: lighten($blue, 10%);
+//       &:hover, &:focus {      
+//       background-color: lighten($blue, 5%);
+//       }
+//       }
+//     }
+//     h2 {
+//       padding-top: 20%;
+//       font-size: $large;
+//       color: $white;
+//       font-weight:700;
+//       padding-right: 15px;
+//       padding-left: 15px;
+//       }
+//     .graph h2 {
+//     padding-top: 30%;
+//       }
+//     .current {
+//       height: 250px;
+//       width: 250px;
+//       border-radius: 50%;
+//       border: 2px solid $black;
+//       background-color: lighten($blue, 10%);
+//       }
+// }
+// .move {
+//   margin-top: -130px;
+// }
+// .mapBlock {
+//   margin-top: 30px;
+//   margin-bottom: 60px;
+//   h1 {
+//     font-size: 3em;
+//   }
+//   h2 {
+//     font-size: 2em;
+//   }
+// }
 
-/*============================================
-Sandbox styling for data and maps
-============================================*/
-.chart rect {
-  fill: steelblue;
-}
-.chart text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: middle;
-}
-#top-panels > table {
-  background: $chartblue;
-  border: none;
-}
-.tab-content {
-  background-color: $chartblue;
-  padding: 20px 30px;
-  h1 {
-    font-size: 1.5em;
-    font-weight:700;
-    padding-bottom: 1em;
-  }
-}
-.tab-nav {
-  border-bottom: none;
-}
-.tab-nav > li.active > a {
-  background: $chartblue;
-}
-.tab-nav > li > a {
-  text-shadow: none;
-  border: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-}
-.tab-nav > li {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-}
-.disbTabSection {
-  margin-bottom: 20px;
-  padding: 20px 0 20px 0;
-  &.bgputty {
-    background-color: $putty;
-  }
-  p {
-    font-size: 1.2em;
-  }
-  ul {
-    list-style: disc inside;
-    li {
-      padding-bottom: 0;
-    }
-  }
-}
-p.noMargin {
-  margin-bottom: 0;
-}
-section.tabs {
-  margin-bottom: 40px;
-}
-.footer {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  color: $white;
-  h1 {
-    font-size: 1em;
-    color: $white;
-    font-weight:700;
-    text-transform: uppercase;
-  }
-  ul {
-    padding-left: 15px;
-    li {
-      padding-bottom: 0;
-      line-height: 1.3em;
-      a {
-      color: $white;
-      &:hover, &:focus {
-        text-decoration: underline;
-      }
-    }
-    }
-  }
-}
-.exhibitData {
-  background-color: $chartblue;
-  padding-left: 30px;
-  h1 {
-  font-size: 2.16em;
-  line-height: 1em;
-  font-weight:700;
-  }
-}
 
-/*============================================
-reports
-============================================*/

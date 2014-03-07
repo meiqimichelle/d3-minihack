@@ -2590,49 +2590,63 @@ utility
 ============================================*/
 .pad50RL { padding-left: 70px; padding-right: 70px; }
 
+.pad50B { padding-bottom: 50px; }
+
 .textRight { text-align: right; }
 
 .textCenter { text-align: center; }
 
+.borderViz { border: 1px solid white; border-radius: 3px; }
+
 /*============================================
 main
 ============================================*/
-.borderViz { border: 1px solid white; border-radius: 3px; }
+.small { position: relative; top: -13px; font-size: .7em; /* refactor this into a function -- want it to be a percentage smaller than the surrounding text rather than hard-coded */ }
+
+.large { position: relative; font-size: 2em; }
 
 .section { overflow: hidden; }
-.section.top { padding: 20px 20px 80px 20px; background-image: url(assets/img/oil_blur.jpg); height: 400px; color: white; }
-.section.top h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #b32d27; padding-left: 20px; margin-top: 70px; color: white; }
-.section.top .intro { background-color: rgba(0, 0, 0, 0.4); margin-top: -10px; margin-left: 20px; padding: 30px; }
-.section.top p + p { border-bottom: 1px solid #0793cd; padding-bottom: 30px; }
-.section.top .learn { border: 1px solid #0793cd; padding-left: 17px; padding-bottom: 4px; margin-top: -28px; background-color: black; }
-.section.top .learn a { display: block; font-size: 1.4em; font-weight: 700; font-style: italic; color: white; }
-.section.top .learn a:hover, .section.top .learn a:focus { color: #10b3f7; }
-.section .title { text-align: center; padding-top: 60px; padding-bottom: 20px; }
-.section .title h1 { color: white; font-size: 26px; font-weight: 700; }
-.section.about { padding: 80px 0 50px 0; position: relative; top: -45px; z-index: -1; }
-.section.about xximg { border: 1px solid white; border-radius: 3px; }
-.section.up45 { position: relative; top: -45px; }
-.section.dataBlock { vertical-align: middle; text-align: center; }
-.section.dataBlock .line { border-bottom: 2px solid black; margin-top: 140px; }
-.section.dataBlock .circle { z-index: 50; margin-top: -130px; margin-bottom: 60px; height: 250px; width: 250px; background-color: #6ab5c3; border: 2px solid black; border-radius: 50%; }
-.section.dataBlock .circle img { width: 80px; }
-.section.dataBlock .circle:hover, .section.dataBlock .circle:focus { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
-.section.dataBlock .circle a { display: block; }
-.section.dataBlock h2 { padding-top: 20%; font-size: 26px; color: white; font-weight: 700; padding-right: 15px; padding-left: 15px; }
-.section.dataBlock .graph h2 { padding-top: 30%; }
-.section.reportBlock { padding: 50px 0 50px 0; }
-.section.reportBlock h1, .section.reportBlock h2 { font-size: 26px; font-weight: 700; }
-.section.reportBlock .reportYears { text-align: right; padding-right: 20px; }
-.section.reportBlock .reportYears h1 { padding-bottom: 20px; }
-.section.reportBlock .reportSummary { background-color: #a29e9d; padding: 30px 40px 30px 40px; }
-.section.reportBlock .reportSummary p { line-height: 1.2em; font-style: italic; }
-.section.reportBlock .download { border: 1px solid #954a3c; padding-left: 8px; padding-bottom: 4px; background-color: #555251; }
-.section.reportBlock .download a { display: block; font-size: 1.4em; font-weight: 700; font-style: italic; color: white; }
-.section.reportBlock .download a:hover, .section.reportBlock .download a:focus { color: #10b3f7; }
-.section.putty { background-color: #eaedf1; }
-.section.orange { background-color: #da5804; }
-.section.blue { background-color: #6ab5c3; }
-.section.brown { background-color: #954a3c; }
+
+.top { padding: 20px 20px 80px 20px; background: url(../img/oil_blur.jpg) no-repeat top center fixed; height: 400px; color: white; }
+.top .intro { background-color: rgba(0, 0, 0, 0.4); margin-top: -20px; margin-left: 20px; padding: 30px; }
+.top h1 { display: inline-block; color: white; font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #d54740; padding-left: 20px; padding-right: 20px; margin-bottom: 10px; }
+.top p + p { border-bottom: 1px solid #0793cd; padding-bottom: 30px; }
+
+.title { text-align: center; padding-top: 60px; padding-bottom: 20px; }
+.title h1 { color: white; font-size: 26px; font-weight: 700; }
+
+.about { padding: 40px 0 50px 0; position: relative; top: -45px; }
+.about h1 { font-size: 26px; font-weight: 800; line-height: 1; }
+.about h2 { display: block; color: #4d4b4b; font-weight: 800; font-size: 18px; font-weight: 800; border-bottom: 2px solid #4d4b4b; }
+
+.up45 { position: relative; top: -45px; }
+
+.dataBlock { vertical-align: middle; text-align: center; }
+.dataBlock .line { border-bottom: 2px solid black; margin-top: 140px; }
+.dataBlock .circle { z-index: 50; margin-top: -130px; margin-bottom: 60px; height: 250px; width: 250px; background-color: #6ab5c3; border: 2px solid black; border-radius: 50%; }
+.dataBlock .circle img { width: 80px; }
+.dataBlock .circle:hover, .dataBlock .circle:focus { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
+.dataBlock .circle a { display: block; }
+.dataBlock h2 { padding-top: 20%; font-size: 26px; color: white; font-weight: 700; padding-right: 15px; padding-left: 15px; }
+.dataBlock .graph h2 { padding-top: 30%; }
+
+.reportBlock { padding: 50px 0 50px 0; }
+.reportBlock h1, .reportBlock h2 { font-size: 26px; font-weight: 700; }
+.reportBlock .reportYears { text-align: right; padding-right: 20px; }
+.reportBlock .reportYears h1 { padding-bottom: 20px; }
+.reportBlock .reportSummary { background-color: #4d4b4b; padding: 30px 40px 30px 40px; }
+.reportBlock .reportSummary p { line-height: 1.2em; font-style: italic; }
+.reportBlock .download { border: 1px solid #954a3c; padding-left: 8px; padding-bottom: 4px; background-color: black; }
+.reportBlock .download a { display: block; font-size: 1.4em; font-weight: 700; font-style: italic; color: white; }
+.reportBlock .download a:hover, .reportBlock .download a:focus { color: #10b3f7; }
+
+.putty { background-color: #eaedf1; }
+
+.orange { background-color: #da5804; }
+
+.blue { background-color: #6ab5c3; }
+
+.brown { background-color: #954a3c; }
 
 .arrows { margin-top: -23px; }
 .arrows img { width: 60px; }
@@ -2646,72 +2660,4 @@ main
 
 /*============================================
 data and information
-============================================*/
-.section { overflow: hidden; }
-.section.top { padding: 20px 20px 80px 20px; background-image: url(../img/oil_blur.jpg); xxmargin-top: 230px; color: white; }
-.section.top.dataInfo { height: 400px; position: relative; z-index: -1; }
-.section.top.dataInfo h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #6ab5c3; padding-left: 20px; margin-top: 70px; color: white; }
-.section .title.dataInfo { padding-top: 30px; padding-bottom: 20px; }
-.section .title.dataInfo h1 { color: black; }
-
-.dataSubHead { vertical-align: middle; text-align: center; background-color: #6ab5c3; }
-.dataSubHead .circle { z-index: 50; margin-top: 0px; margin-bottom: 10px; height: 250px; width: 250px; background-color: #6ab5c3; border: 2px solid black; border-radius: 50%; }
-.dataSubHead .circle img { width: 80px; }
-.dataSubHead .circle:hover, .dataSubHead .circle:focus { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
-.dataSubHead .circle a { display: block; }
-.dataSubHead ul { width: 250px; }
-.dataSubHead ul li a { display: block; padding: 7px; margin: auto 15% auto 17%; font-size: 18px; color: white; font-weight: 700; background-color: #8ec7d2; }
-.dataSubHead ul li a:hover, .dataSubHead ul li a:focus { background-color: #7cbeca; }
-.dataSubHead h2 { padding-top: 20%; font-size: 26px; color: white; font-weight: 700; padding-right: 15px; padding-left: 15px; }
-.dataSubHead .graph h2 { padding-top: 30%; }
-.dataSubHead .current { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
-
-.move { margin-top: -130px; }
-
-.mapBlock { margin-top: 30px; margin-bottom: 60px; }
-.mapBlock h1 { font-size: 3em; }
-.mapBlock h2 { font-size: 2em; }
-
-/*============================================
-Sandbox styling for data and maps
-============================================*/
-.chart rect { fill: steelblue; }
-
-.chart text { fill: white; font: 10px sans-serif; text-anchor: middle; }
-
-#top-panels > table { background: #c8d7d9; border: none; }
-
-.tab-content { background-color: #c8d7d9; padding: 20px 30px; }
-.tab-content h1 { font-size: 1.5em; font-weight: 700; padding-bottom: 1em; }
-
-.tab-nav { border-bottom: none; }
-
-.tab-nav > li.active > a { background: #c8d7d9; }
-
-.tab-nav > li > a { text-shadow: none; border: none; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
-
-.tab-nav > li { -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
-
-.disbTabSection { margin-bottom: 20px; padding: 20px 0 20px 0; }
-.disbTabSection.bgputty { background-color: #eaedf1; }
-.disbTabSection p { font-size: 1.2em; }
-.disbTabSection ul { list-style: disc inside; }
-.disbTabSection ul li { padding-bottom: 0; }
-
-p.noMargin { margin-bottom: 0; }
-
-section.tabs { margin-bottom: 40px; }
-
-.footer { padding-top: 50px; padding-bottom: 50px; color: white; }
-.footer h1 { font-size: 1em; color: white; font-weight: 700; text-transform: uppercase; }
-.footer ul { padding-left: 15px; }
-.footer ul li { padding-bottom: 0; line-height: 1.3em; }
-.footer ul li a { color: white; }
-.footer ul li a:hover, .footer ul li a:focus { text-decoration: underline; }
-
-.exhibitData { background-color: #c8d7d9; padding-left: 30px; }
-.exhibitData h1 { font-size: 2.16em; line-height: 1em; font-weight: 700; }
-
-/*============================================
-reports
 ============================================*/
