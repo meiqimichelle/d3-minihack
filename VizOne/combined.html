@@ -132,20 +132,16 @@
       .on('mouseout', tip.hide)
       .on('click', clickedOnABar)
 
+      render_pie_chart(pie_data[2003]);
 
-
-
-
-
-
-
+function render_pie_chart(local_pie_data) {
 
 
     console.log("======== pie chart =========")
     console.log("create the SVG element inside the <body>")
     var vis = svg
       .append("g")              // create a group (g element) within the svg
-      .data([data])                   //associate our data with the document
+      .data([local_pie_data])                   //associate our data with the document
       .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
       .attr("height", pie_height)
       .append("svg:g")                //make a group to hold our pie chart
@@ -184,13 +180,13 @@
         return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
       })
       .attr("text-anchor", "middle")                          //center the text on it's origin
-      .text(function(d, i) { return data[i].label; });        //get the label from our original data array
-
-
+      .text(function(d, i) { return local_pie_data[i].label; });        //get the label from our original data array
   }
 
   function clickedOnABar(d) {
-    alert("I got clicked "+d.year)
+    render_pie_chart(pie_data[d.year]);
+  }
+
   }
 
 </script>
