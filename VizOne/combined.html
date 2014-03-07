@@ -4,7 +4,8 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-
+<div id="bar">
+<div id="pie">
 <script>
 /*
 
@@ -83,11 +84,6 @@ function get_bar_chart_color(i) {
     })
 
 
-  /* pie chart parameters */
-  var pie_width = 300,                        //width
-    pie_height = 300,                            //height
-    r = 100,                            //radius
-    color = d3.scale.category20c();     //builtin range of colors
 
   queue()
     .defer(d3.csv, "https://docs.google.com/spreadsheet/pub?key=0AjPWVMj9wWa6dGw3b1c3ZHRSMW92UTJlNXRLTXZ0RUE&single=true&gid=0&output=csv")
@@ -133,13 +129,21 @@ function get_bar_chart_color(i) {
     gData = data; // for debugging
 
 
-    console.log("======== bar chart =========")
-
-    var svg = d3.select("body").append("svg")
+// Ideally these would both be nice pure functions,
+// But right now they share tons of global variables!
+var svg = d3.select("body").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      render_bar_chart(svg,x,y);
+      render_pie_chart(pie_data[2003]);
+
+function render_bar_chart(svg,x,y) {
+    console.log("======== bar chart =========")
+
+// Warnging!  This is a global!
 
     svg.call(tip);
 
@@ -176,15 +180,19 @@ function get_bar_chart_color(i) {
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
       .on('click', clickedOnABar)
+}
 
-      render_pie_chart(pie_data[2003]);
 
 function render_pie_chart(local_pie_data) {
 
+  /* pie chart parameters */
+  var pie_width = 300,                        //width
+    pie_height = 300,                            //height
+    r = 100,                            //radius
+    color = d3.scale.category20c();     //builtin range of colors
 
     console.log("======== pie chart =========")
-    console.log("create the SVG element inside the <body>")
-    var vis = svg
+    var vis = d3.select("svg")
       .append("g")              // create a group (g element) within the svg
       .data([local_pie_data])                   //associate our data with the document
       .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
