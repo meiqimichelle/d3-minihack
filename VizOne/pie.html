@@ -1,18 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
-  path {
-    stroke: #cce;
-    stroke-width: 0.25px;
-    fill: #bbd;
-  }
-
-  .symbol {
-    fill: blue;
-    fill-opacity: .8;
-    stroke: #fff;
-  }
-</style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
@@ -26,6 +13,8 @@
     height = 300,                            //height
     r = 100,                            //radius
     color = d3.scale.category20c();     //builtin range of colors
+console.log("color(0)" + color(0))
+console.log("color[0]" + color[0])
 
   queue()
     .defer(d3.csv, "https://docs.google.com/spreadsheet/pub?key=0AjPWVMj9wWa6dGw3b1c3ZHRSMW92UTJlNXRLTXZ0RUE&single=true&gid=0&output=csv")
@@ -91,7 +80,9 @@
     console.log("set the color for each slice")
 
     arcs.append("svg:path")
-      .attr("fill", function(d, i) { console.log(i); return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+      .attr("fill", function(d, i) { console.log(i); console.log(color(i)); 
+		    return color(i); 
+		    } ) //set the color for each slice to be chosen from the color function defined above
       .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
 
     console.log("add a label to each slice")
