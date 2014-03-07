@@ -32,10 +32,19 @@ pie_chart_colors[2] = '#aeab97';
 pie_chart_colors[3] = '#fc615e';
 pie_chart_colors[4] = '#00a0d9';
 
+bar_chart_colors = new Array(4);
+bar_chart_colors[0] = '#00a0d9';
+bar_chart_colors[1] = '#8dc2e7';
+bar_chart_colors[2] = '#605e5e';
+bar_chart_colors[3] = '#929497';
+
 // This makes sure we won't run off the end if we end up with more categories
 // (Though a color will get reused!)
 function get_pie_chart_color(i) {
     return pie_chart_colors[i % pie_chart_colors.length];
+}
+function get_bar_chart_color(i) {
+    return bar_chart_colors[i % bar_chart_colors.length];
 }
 
   // nice pie chart example: https://gist.github.com/enjalot/1203641
@@ -160,6 +169,10 @@ function get_pie_chart_color(i) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.revenue); })
       .attr("height", function(d) { return height - y(d.revenue); })
+/* Just testing, will put palette in here.... */
+      .attr("fill", function(d,i) {
+         return get_bar_chart_color(i);
+      })
       .on('mouseover', tip.show)
       .on('mouseout', tip.hide)
       .on('click', clickedOnABar)
