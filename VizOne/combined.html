@@ -68,31 +68,7 @@ function get_bar_chart_color(i) {
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
-  /* bar chart parameters */
 
-  var formatPercent = d3.format(".0%");
-
-  var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-  var y = d3.scale.linear()
-    .range([height, 0]);
-
-  var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-  var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(formatPercent);
-
-  var tip = d3.tip()
-    .attr('class', 'd3-tip')
-    .offset([-10, 0])
-    .html(function(d) {
-      return "<strong>Revenue:</strong> <span style='color:red'>" + d.revenue + "</span>";
-    })
 
 
 
@@ -146,16 +122,40 @@ function get_bar_chart_color(i) {
     var bar_svg = d3.select("body").append("svg").attr("class", "bar")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-      .append("g")
+      .append("g").attr("class", "inner_bars")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     render_pie_chart(".pie", pie_data[2003]);
-    render_bar_chart(bar_svg, x,y);
+    render_bar_chart(bar_svg);
 
-function render_bar_chart(svg, x,y) {
-    console.log("======== bar chart =========")
+function render_bar_chart(svg) {
+  console.log("======== bar chart =========")
 
-// Warnging!  This is a global!
+  /* bar chart parameters */
+
+  var formatPercent = d3.format(".0%");
+
+  var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+    .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+      return "<strong>Revenue:</strong> <span style='color:red'>" + d.revenue + "</span>";
+    })
 
   svg.call(tip);
 
