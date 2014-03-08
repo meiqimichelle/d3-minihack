@@ -199,7 +199,8 @@ function render_pie_chart(svg_selector, local_pie_data) {
   svg = d3.select(svg_selector);
   var pie_width = styleAttrAsNumber(svg, "width");
   var pie_height = styleAttrAsNumber(svg, "height");
-  var r = Math.min(pie_height, pie_width) / 2;
+  var r = Math.min(pie_height, pie_width) / 4;
+  var center = {x: pie_width / 2, y: pie_height / 2}
 
   console.log("======== pie chart =========")
     var vis = svg.append("g")              // create a group (g element) within the svg
@@ -207,7 +208,7 @@ function render_pie_chart(svg_selector, local_pie_data) {
     //  .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
     //  .attr("height", pie_height)
       .append("svg:g")                //make a group to hold our pie chart
-      .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+      .attr("transform", "translate(" + center.x + "," + center.y + ")")    //move the center of the pie chart from 0, 0 to radius, radius
 
     console.log("create <path> elements for us using arc data")
 
@@ -219,7 +220,6 @@ function render_pie_chart(svg_selector, local_pie_data) {
     var pie = d3.layout.pie()           //this will create arc data for us given a list of values
       .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
 
-    console.log("something")
     var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
       .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
       .enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
@@ -238,8 +238,8 @@ function render_pie_chart(svg_selector, local_pie_data) {
     arcs.append("svg:text")                                     //add a label to each slice
       .attr("transform", function(d) {                    //set the label's origin to the center of the arc
         //we have to make sure to set these before calling arc.centroid
-        d.innerRadius = 0;
-        d.outerRadius = r;
+        d.innerRadius = r * 1.4;
+       // d.outerRadius = r;
         return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
       })
       .attr("text-anchor", "middle")                          //center the text on it's origin
