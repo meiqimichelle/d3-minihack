@@ -247,7 +247,7 @@ function render_pie_chart(svg_selector, local_pie_data) {
   }
 
   function clickedOnABar(d) {
-    render_pie_chart(pie_data[d.year]);
+    render_pie_chart(".pie", pie_data[d.year]);
   }
 
   }
