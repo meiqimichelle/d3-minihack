@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <body>
+<style>
+  .pie {
+    width: 300px;
+    height: 300px;
+  }
+</style>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-<div id="bar">
-<div id="pie">
 <script>
 /*
 
@@ -131,31 +135,32 @@ function get_bar_chart_color(i) {
 
 // Ideally these would both be nice pure functions,
 // But right now they share tons of global variables!
-var svg = d3.select("body").append("svg")
+    var pie_svg = d3.select("body").append("svg").attr("class", "pie")
+    var bar_svg = d3.select("body").append("svg").attr("class", "bar")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      render_bar_chart(svg,x,y);
-      render_pie_chart(pie_data[2003]);
+    render_pie_chart(".pie", pie_data[2003]);
+    render_bar_chart(bar_svg, x,y);
 
-function render_bar_chart(svg,x,y) {
+function render_bar_chart(svg, x,y) {
     console.log("======== bar chart =========")
 
 // Warnging!  This is a global!
 
-    svg.call(tip);
+  svg.call(tip);
 
     x.domain(revenue_data.map(function(d) { return d.year; }));
     y.domain([0, d3.max(revenue_data, function(d) { return d.revenue; })]);
 
-    svg.append("g")
+  svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-    svg.append("g")
+  svg.append("g")
       .attr("class", "y axis")
       /*    .call(yAxis)
        .append("text") */
@@ -165,7 +170,7 @@ function render_bar_chart(svg,x,y) {
       .style("text-anchor", "end")
       .text("Revenue");
 
-    svg.selectAll(".bar")
+  svg.selectAll(".bar")
       .data(revenue_data)
       .enter().append("rect")
       .attr("class", "bar")
@@ -183,20 +188,22 @@ function render_bar_chart(svg,x,y) {
 }
 
 
-function render_pie_chart(local_pie_data) {
+function render_pie_chart(svg_selector, local_pie_data) {
 
   /* pie chart parameters */
-  var pie_width = 300,                        //width
-    pie_height = 300,                            //height
-    r = 100,                            //radius
-    color = d3.scale.category20c();     //builtin range of colors
+  var color = d3.scale.category20c();     //builtin range of colors
+  svg = d3.select(svg_selector);
+  var width_str = svg.style("width")
+  var pie_width = Number(width_str.slice(0,-2))
+  var height_str = svg.style("height")
+  var pie_height = Number(height_str.slice(0,-2))
+  var r = Math.min(pie_height, pie_width) / 2;
 
-    console.log("======== pie chart =========")
-    var vis = d3.select("svg")
-      .append("g")              // create a group (g element) within the svg
+  console.log("======== pie chart =========")
+    var vis = svg.append("g")              // create a group (g element) within the svg
       .data([local_pie_data])                   //associate our data with the document
-      .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-      .attr("height", pie_height)
+    //  .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+    //  .attr("height", pie_height)
       .append("svg:g")                //make a group to hold our pie chart
       .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
 
