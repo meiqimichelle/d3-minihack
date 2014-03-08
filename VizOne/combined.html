@@ -8,6 +8,16 @@
 <link rel="stylesheet" type="text/css" href="combined.css">
 
 <script>
+
+
+/* return a style attribute as a number (instead of string like '100px') */
+function styleAttrAsNumber(d3_element, style_name) {
+  style_str = d3_element.style(style_name);
+  return Number(style_str.slice(0,-2));
+}
+
+
+
 /*
 
 Michelle sent in this color pallette information...
@@ -190,10 +200,8 @@ function render_pie_chart(svg_selector, local_pie_data) {
   /* pie chart parameters */
   var color = d3.scale.category20c();     //builtin range of colors
   svg = d3.select(svg_selector);
-  var width_str = svg.style("width")
-  var pie_width = Number(width_str.slice(0,-2))
-  var height_str = svg.style("height")
-  var pie_height = Number(height_str.slice(0,-2))
+  var pie_width = styleAttrAsNumber(svg, "width");
+  var pie_height = styleAttrAsNumber(svg, "height");
   var r = Math.min(pie_height, pie_width) / 2;
 
   console.log("======== pie chart =========")
