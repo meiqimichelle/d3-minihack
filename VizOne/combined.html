@@ -63,15 +63,6 @@ function get_bar_chart_color(i) {
   var gOrig = null;
   var gData = null;
 
-  /* basic frame */
-  var margin = {top: 40, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-
-
-
-
   queue()
     .defer(d3.csv, "https://docs.google.com/spreadsheet/pub?key=0AjPWVMj9wWa6dGw3b1c3ZHRSMW92UTJlNXRLTXZ0RUE&single=true&gid=0&output=csv")
     .await(ready);
@@ -119,17 +110,23 @@ function get_bar_chart_color(i) {
 // Ideally these would both be nice pure functions,
 // But right now they share tons of global variables!
     var pie_svg = d3.select("body").append("svg").attr("class", "pie")
+
+
+    /* basic frame */
+    var bar_char_margin = {top: 40, right: 20, bottom: 30, left: 40};
+
     var bar_svg = d3.select("body").append("svg").attr("class", "bar")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+    var inner_bars = bar_svg
       .append("g").attr("class", "inner_bars")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .attr("transform", "translate(" + bar_char_margin.left + "," + bar_char_margin.top + ")");
 
     render_pie_chart(".pie", pie_data[2003]);
-    render_bar_chart(bar_svg);
+    render_bar_chart(bar_svg, inner_bars, bar_char_margin);
 
-function render_bar_chart(svg) {
+function render_bar_chart(container_svg, svg, margin) {
   console.log("======== bar chart =========")
+  var width = styleAttrAsNumber(container_svg, "width") - margin.left - margin.right;
+  var height = styleAttrAsNumber(container_svg, "height") - margin.top - margin.bottom;
 
   /* bar chart parameters */
 
