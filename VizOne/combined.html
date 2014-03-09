@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<body>
+<head>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://d3js.org/queue.v1.min.js"></script>
@@ -109,13 +109,13 @@ function get_bar_chart_color(i) {
 
 // Ideally these would both be nice pure functions,
 // But right now they share tons of global variables!
-    var pie_svg = d3.select("body").append("svg").attr("class", "pie")
+    var pie_svg = d3.select("#viz-one").append("svg").attr("class", "pie")
 
 
     /* basic frame */
-    var bar_char_margin = {top: 40, right: 20, bottom: 30, left: 40};
+    var bar_char_margin = {top: 0, right: 20, bottom: 30, left: 40};
 
-    var bar_svg = d3.select("body").append("svg").attr("class", "bar")
+    var bar_svg = d3.select("#viz-one").append("svg").attr("class", "bar")
     var inner_bars = bar_svg
       .append("g").attr("class", "inner_bars")
       .attr("transform", "translate(" + bar_char_margin.left + "," + bar_char_margin.top + ")");
@@ -199,8 +199,8 @@ function render_pie_chart(svg_selector, local_pie_data) {
   svg = d3.select(svg_selector);
   var pie_width = styleAttrAsNumber(svg, "width");
   var pie_height = styleAttrAsNumber(svg, "height");
-  var r = Math.min(pie_height, pie_width) / 4;
-  var center = {x: pie_width / 2, y: pie_height / 2}
+  var r = Math.min(pie_height, pie_width) / 3;
+  var center = {x: pie_width / 2, y: pie_height / 2 }
 
   console.log("======== pie chart =========")
     var vis = svg.append("g")              // create a group (g element) within the svg
@@ -253,5 +253,8 @@ function render_pie_chart(svg_selector, local_pie_data) {
   }
 
 </script>
+</head>
+<body>
+<div id="viz-one"></div>
 </body>
 </html>
