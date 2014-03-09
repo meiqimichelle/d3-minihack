@@ -203,10 +203,8 @@ function render_pie_chart(svg_selector, local_pie_data) {
   var center = {x: pie_width / 2, y: pie_height / 2 }
 
   console.log("======== pie chart =========")
-    var vis = svg.append("g")              // create a group (g element) within the svg
+    var vis = svg
       .data([local_pie_data])                   //associate our data with the document
-    //  .attr("width", pie_width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-    //  .attr("height", pie_height)
       .append("svg:g")                //make a group to hold our pie chart
       .attr("transform", "translate(" + center.x + "," + center.y + ")")    //move the center of the pie chart from 0, 0 to radius, radius
 
