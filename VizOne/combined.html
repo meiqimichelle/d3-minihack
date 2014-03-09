@@ -232,39 +232,46 @@ function render_pie_chart(svg_selector, local_pie_data) {
 
     var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
       .outerRadius(r);
+    var fill = function(d, i) {  return get_pie_chart_color(i); }
 
     console.log("create arc data for us given a list of values")
 
     var pie = d3.layout.pie()           //this will create arc data for us given a list of values
       .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
 
-    var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
-      .data(pie);                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
-
-    arcs.enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
-      .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
-      .attr("class", "slice");    //allow us to style things in the slices (like text)
-    arcs.exit().remove();
-
-    console.log("set the color for each slice")
-
-    arcs.append("svg:path")
-//      .attr("fill", function(d, i) { console.log(i, color(i)); return color(i); } ) //set the color for each slice to be chosen from the color function defined above
-      .attr("fill", function(d, i) { console.log(i, get_pie_chart_color(i)); return get_pie_chart_color(i); } ) //set the color for each slice to be chosen from the color function defined above
+    var arcs = vis.selectAll("path")     //this selects all <g> elements with class slice (there aren't any yet)
+      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+      .attr("fill", fill ) //set the color for each slice to be chosen from the color function defined above
       .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+
+    arcs.enter().append("svg:path")
+      .attr("fill", fill ) //set the color for each slice to be chosen from the color function defined above
+      .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+
+    arcs.exit().remove();
 
     console.log("add a label to each slice")
 
-    arcs.append("svg:text")                                     //add a label to each slice
-      .attr("transform", function(d) {                    //set the label's origin to the center of the arc
-        //we have to make sure to set these before calling arc.centroid
-        d.innerRadius = r * 1.4;
-       // d.outerRadius = r;
-        return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
-      })
-      .attr("text-anchor", "middle")                          //center the text on it's origin
-      .text(function(d, i) { return local_pie_data[i].label; });        //get the label from our original data array
-  }
+    var transform = function(d) {                    //set the label's origin to the center of the arc
+      //we have to make sure to set these before calling arc.centroid
+      d.innerRadius = r * 1.4;
+      return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
+    }
+    var text_label = function(d, i) { return local_pie_data[i].label; }
+
+    var labels = vis.selectAll("text")     //this selects all <g> elements with class slice (there aren't any yet)
+      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+      .attr("transform", transform)
+      .text(text_label);        //get the label from our original data array
+
+    labels.enter().append("svg:text")                                     //add a label to each slice
+        .attr("transform", transform)
+        .attr("text-anchor", "middle")                          //center the text on it's origin
+        .text(text_label);        //get the label from our original data array
+
+    labels.exit().remove();
+
+}
 
   function clickedOnABar(d) {
     render_pie_chart(".pie", pie_data[d.year]);
