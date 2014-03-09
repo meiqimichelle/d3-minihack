@@ -252,9 +252,18 @@ function render_pie_chart(svg_selector, local_pie_data) {
 
     console.log("add a label to each slice")
 
+    var offset = 0
     var transform = function(d) {                    //set the label's origin to the center of the arc
       //we have to make sure to set these before calling arc.centroid
-      d.innerRadius = r * 1.4;
+      var angle = d.endAngle - d.startAngle;
+      console.log(d.data.label, angle, d);
+      if (angle > 0.3 ) d.innerRadius = r * 0.6;
+      else {
+        if (angle < 0.5) offset -= 20;
+        else offset = 0;
+        d.innerRadius = r * 1.4 + offset;
+      }
+      console.log(d.innerRadius)
       return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
     }
     var text_label = function(d, i) { return local_pie_data[i].label; }
