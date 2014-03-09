@@ -120,7 +120,7 @@ function get_bar_chart_color(i) {
       .append("g").attr("class", "inner_bars")
       .attr("transform", "translate(" + bar_char_margin.left + "," + bar_char_margin.top + ")");
 
-    render_pie_chart(".pie", pie_data[2003]);
+    setup_pie_chart(".pie", pie_data[2003]);
     render_bar_chart(bar_svg, inner_bars, bar_char_margin);
 
 function render_bar_chart(container_svg, svg, margin) {
@@ -191,22 +191,42 @@ function render_bar_chart(container_svg, svg, margin) {
       .on('click', clickedOnABar)
 }
 
+var color = d3.scale.category20c();     //builtin range of colors
 
-function render_pie_chart(svg_selector, local_pie_data) {
-
-  /* pie chart parameters */
-  var color = d3.scale.category20c();     //builtin range of colors
-  svg = d3.select(svg_selector);
+function get_pie_attrs(svg) {
   var pie_width = styleAttrAsNumber(svg, "width");
   var pie_height = styleAttrAsNumber(svg, "height");
   var r = Math.min(pie_height, pie_width) / 3;
+  return {width:pie_width, height:pie_height, radius:r}
+}
+function setup_pie_chart(svg_selector, local_pie_data) {
+  console.log("======== setup pie chart: once =========")
+  svg = d3.select(svg_selector);
+  attrs = get_pie_attrs(svg)
+  pie_width = attrs.width;
+  pie_height = attrs.height;
+  r = attrs.radius;
+
   var center = {x: pie_width / 2, y: pie_height / 2 }
 
-  console.log("======== pie chart =========")
-    var vis = svg
+  var vis = svg
+    .append("svg:g")                //make a group to hold our pie chart
+    .attr("transform", "translate(" + center.x + "," + center.y + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+  render_pie_chart(svg_selector, local_pie_data);
+}
+function render_pie_chart(svg_selector, local_pie_data) {
+
+  /* pie chart parameters */
+  svg = d3.select(svg_selector);
+  attrs = get_pie_attrs(svg)
+  pie_width = attrs.width;
+  pie_height = attrs.height;
+  r = attrs.radius;
+
+  vis = svg.select('g')
       .data([local_pie_data])                   //associate our data with the document
-      .append("svg:g")                //make a group to hold our pie chart
-      .attr("transform", "translate(" + center.x + "," + center.y + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+
+  console.log("======== render pie chart data=========")
 
     console.log("create <path> elements for us using arc data")
 
@@ -219,10 +239,12 @@ function render_pie_chart(svg_selector, local_pie_data) {
       .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
 
     var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
-      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
-      .enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
+      .data(pie);                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+
+    arcs.enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
       .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
       .attr("class", "slice");    //allow us to style things in the slices (like text)
+    arcs.exit().remove();
 
     console.log("set the color for each slice")
 
