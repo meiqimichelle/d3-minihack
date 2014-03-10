@@ -5,9 +5,6 @@ utility
   padding-left: 70px;
   padding-right: 70px;
 }
-.pad30B {
-  padding-bottom: 30px;
-}
 .textRight {
   text-align: right;
 }
@@ -24,30 +21,65 @@ utility
 main
 ============================================*/
 
+h1 {
+  font-size: $large;
+  font-weight: 800;
+  line-height: 1;
+}
+h2 {
+  display: block;
+  color: #4d4b4b;
+  font-weight: 800;
+  font-size: $med;
+  font-weight: 800;
+  border-bottom: 2px solid #4d4b4b;
+  margin-bottom: 15px;
+}
+a {
+  text-decoration: underline;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
 
 .small {
-    position: relative;
-    top: -13px;
-    font-size: .7em; /* refactor this into a function -- want it to be a percentage smaller than the surrounding text rather than hard-coded */
+  position: relative;
+  top: -13px;
+  font-size: .7em; /* refactor this into a function -- want it to be a percentage smaller than the surrounding text rather than hard-coded */
   }
+.med {
+  font-size: 1.3em;
+}
 .large {
-    position: relative;
-    font-size: 2em; 
+  position: relative;
+  font-size: 2em; 
 }
 
 .section {
-    overflow: hidden; }
+  padding: 40px 0 50px 0;
+  overflow: hidden;
+}
+
+.putty {
+  background-color: $putty;
+}
+.gray {
+  background-color: $ltgray;
+}
     
 .top {
 padding: 20px 20px 80px 20px;
 background: url(../img/oil_blur.jpg) no-repeat top center fixed;
-height: 400px;
 color: $white;
     .intro {
-    background-color: transparentize($black, 0.6);
-    margin-top: -20px;
-    margin-left: 20px;
-    padding: 30px;
+      background-color: transparentize($black, 0.6);
+      margin-top: -20px;
+      margin-left: 20px;
+      padding: 30px;
+      p {
+        font-size: $norm;
+        line-height: 1.2em;
+      }
     }
     h1 {
       display: inline-block;
@@ -59,10 +91,6 @@ color: $white;
       padding-left: 20px;
       padding-right: 20px;
       margin-bottom: 10px;
-    }
-    p+p {
-    border-bottom: 1px solid $eitiblue;
-    padding-bottom: 30px;
     }
     // .learn {
     // border: 1px solid $eitiblue;
@@ -82,45 +110,58 @@ color: $white;
     //   }
     // }
 }
-.title {
-text-align: center;
-padding-top: 60px;
-padding-bottom: 20px;
+// .title {
+// text-align: center;
+// padding-top: 60px;
+// padding-bottom: 20px;
+//   h1 {
+//   color: $white;
+//   font-size: $large;
+//   font-weight: 700;
+//   }
+// }
+
+.sectors {
   h1 {
-  color: $white;
-  font-size: $large;
-  font-weight: 700;
+    padding-bottom: 30px;
+  }
+  p {
+    font-size: 0.82em;
+    line-height: 1em;
+    padding-left: 5px;
   }
 }
-
-
-.about {
-padding: 40px 0 50px 0;
-position: relative;
-top: -45px;
+.where {
   h1 {
-    font-size: $large;
-    font-weight: 800;
-    line-height: 1;
+    /*padding: 0 30px 30px 30px;*/
   }
   h2 {
-    display: block;
-    color: #4d4b4b;
-    font-weight: 800;
-    font-size: $med;
-    font-weight: 800;
-    border-bottom: 2px solid #4d4b4b;
-    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: $norm;
   }
-}
-.aboutText {
+  .offshore {
+    h2, h3 {
+      color: $purple1;
+      border-bottom-color: $purple1;
+    }
+  }
+  .onshore {
+    h2, h3 {
+      color: $orange1;
+      border-bottom-color: $orange1;
+    }
+  }
+  h3 {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 800;
+  }
   p {
-  font-size: 0.82em;
-  line-height: 1em;
-  padding-left: 5px;
+    font-size: $norm;
+    padding-left: 0px;
   }
 }
-.aboutImg {
+.sectorImg {
   height: 40px;
   float: right;
 }
@@ -130,231 +171,55 @@ top: -45px;
   padding-left: 20px;
   margin-bottom: 20px;
 }
+.break {
+  padding: 12px 20px 11px 20px;
+  background: url(../img/unsplash_fuzzy_lights.jpg) no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+}
+.tree {
+  h1 {
+    padding: 20px 0 5px 0;
+  }
+}
+.dollars {
+  h1 {
+    padding: 40px 0 20px 0;
+  }
+}
+.whereInfo {
+  padding-top: 50px;
+  img {
+    height: 70px;
+  }
+}
 
-.up45 {
-  position: relative;
-  top: -45px;
-}
-.dataBlock {
-vertical-align: middle;
-text-align: center;
-  .line {
-  border-bottom: 2px solid $black;
-  margin-top: 140px;
-  }
-  .circle {
-  z-index: 50;
-  margin-top: -130px;
-  margin-bottom: 60px;
-  height: 250px;
-  width: 250px;
-  background-color: $blue;
-  border: 2px solid $black;
-  border-radius: 50%;
-    img {
-      width: 80px;
-    }
-    &:hover, &:focus {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    border: 2px solid $black;
-    background-color: lighten($blue, 10%);
-    }
-    a {
-    display: block;
-    }
-  }
-  h2 {
-  padding-top: 20%;
-  font-size: $large;
-  color: $white;
-  font-weight:700;
-  padding-right: 15px;
-  padding-left: 15px;
-  }
-  .graph h2 {
-  padding-top: 30%;
-  }
-}
-.reportBlock {
-padding: 50px 0 50px 0;
-h1, h2 {
-  font-size: $large;
-  font-weight:700;
-}
-.reportYears {
-text-align: right;
-padding-right: 20px;
-h1 {
-  padding-bottom: 20px;
-}
-}
-.reportSummary {
-background-color: $gray;
-padding: 30px 40px 30px 40px;
+.how {
   p {
-  line-height:1.2em;
-  font-style: italic;
+    font-size: $norm;
+    padding-left: 0px;
+    line-height: 1.2em;
   }
 }
-.download {
-    border: 1px solid $brown;
-    padding-left: 8px;
-    padding-bottom: 4px;
-    background-color: darken($gray, 30%);
-      a {
-      display: block;
-      font-size: 1.4em;
-      font-weight: 700;
-      font-style: italic;
-      color: $white;
-      &:hover, &:focus {
-      color: lighten($eitiblue, 10%);
-      }
-      }
-  }
-  }
-.putty {
-background-color: $putty;
-}
-.orange {
-background-color: $orange;
-}
+
 .blue {
 background-color: $blue;
 }
 .brown {
 background-color: $brown;
 }
-
-.arrows {
-  margin-top: -23px;
-  img {
-  width: 60px;
-  }
-}
-.leader {
-  font-weight:700;
-  font-size: $med;
+.purple {
+  color: $purple1;
 }
 .orange {
-  color: $orange;
+  color: $orange1;
 }
 
-
-
-
-
 /*============================================
-data and information
+footer
 ============================================*/
-
-// .section {
-//     overflow: hidden;
-//     &.top {
-//     padding: 20px 20px 80px 20px;
-//     background-image:url(../img/oil_blur.jpg);
-//     xxmargin-top: 230px;
-//     color: $white;
-//     &.dataInfo{
-//         height: 400px;
-//         position: relative;
-//         z-index: -1;
-//         h1 {
-//         font-size: 2.16em;
-//         line-height: 1em;
-//         font-weight:700;
-//         background-color: $blue;
-//         padding-left: 20px;
-//         margin-top: 70px;
-//         color: $white;
-//         }
-//     }
-//     }
-//     .title.dataInfo {
-//     padding-top: 30px;
-//     padding-bottom: 20px;
-//       h1 {
-//       color: $black;
-//       }
-//     }
-    
-// }
-
-// .dataSubHead {
-//     vertical-align: middle;
-//     text-align: center;
-//     background-color: $blue;
-//     .circle {
-//     z-index: 50;
-//     margin-top: 0px;
-//     margin-bottom: 10px;
-//     height: 250px;
-//     width: 250px;
-//     background-color: $blue;
-//     border: 2px solid $black;
-//     border-radius: 50%;
-//       img {
-//         width: 80px;
-//       }
-//       &:hover, &:focus {
-//       height: 250px;
-//       width: 250px;
-//       border-radius: 50%;
-//       border: 2px solid $black;
-//       background-color: lighten($blue, 10%);
-//       }
-//       a {
-//       display: block;
-//       }
-//     }
-//     ul {
-//     width: 250px;
-//       li a {
-//       display: block;
-//       padding: 7px;
-//       margin: auto 15% auto 17%;
-//       font-size: $med;
-//       color: $white;
-//       font-weight:700;
-//       background-color: lighten($blue, 10%);
-//       &:hover, &:focus {      
-//       background-color: lighten($blue, 5%);
-//       }
-//       }
-//     }
-//     h2 {
-//       padding-top: 20%;
-//       font-size: $large;
-//       color: $white;
-//       font-weight:700;
-//       padding-right: 15px;
-//       padding-left: 15px;
-//       }
-//     .graph h2 {
-//     padding-top: 30%;
-//       }
-//     .current {
-//       height: 250px;
-//       width: 250px;
-//       border-radius: 50%;
-//       border: 2px solid $black;
-//       background-color: lighten($blue, 10%);
-//       }
-// }
-// .move {
-//   margin-top: -130px;
-// }
-// .mapBlock {
-//   margin-top: 30px;
-//   margin-bottom: 60px;
-//   h1 {
-//     font-size: 3em;
-//   }
-//   h2 {
-//     font-size: 2em;
-//   }
-// }
-
-
+.footer {
+  h1 {
+    font-size: $norm;
+  }
+}

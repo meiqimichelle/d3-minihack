@@ -1232,8 +1232,8 @@ p { font-family: "Lato", sans-serif; font-weight: 400; font-size: 16px; font-siz
 p.lead { font-size: 20px; font-size: 1.25rem; margin-bottom: 18px; }
 @media only screen and (max-width: 768px) { p { font-size: 17.6px; font-size: 1.1rem; line-height: 1.625em; } }
 
-a { color: #d04526; text-decoration: none; outline: 0; line-height: inherit; }
-a:hover { color: #c03d20; }
+a { color: #4d4b4b; text-decoration: none; outline: 0; line-height: inherit; }
+a:hover { color: black; }
 
 /*=====================================================
  Lists  ======================================================*/
@@ -2203,7 +2203,7 @@ img { -ms-interpolation-mode: bicubic; }
   .navbar ul li.active .dropdown ul { position: relative; top: 0; background: #36393b; min-height: 50px; max-height: 250px; height: auto; overflow: auto; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; }
   .navbar ul li.active .dropdown ul li { min-height: 50px; border-bottom: #3e4043; }
   .navbar ul li.active .dropdown ul li a { color: white; border-bottom: 1px solid #313436; }
-  .navbar ul li.active .dropdown ul li a:hover { color: #d04526; } }
+  .navbar ul li.active .dropdown ul li a:hover { color: #4d4b4b; } }
 
 @media only screen and (min-width: 768px) and (max-width: 939px) { .navbar > ul > li > .btn a { padding: 0 10px 0 10px !important; }
   .navbar ul > li .dropdown ul li.active .dropdown { left: -320px; } }
@@ -2227,12 +2227,12 @@ img { -ms-interpolation-mode: bicubic; }
   .navbar li .dropdown.active .dropdown ul { position: relative; top: 0; background: #36393b; min-height: 50px; max-height: 250px; height: auto; overflow: auto; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; box-shadow: none !important; }
   .navbar li .dropdown.active .dropdown ul li { min-height: 50px; border-bottom: #3e4043; }
   .navbar li .dropdown.active .dropdown ul li a { color: white; border-bottom: 1px solid #313436; }
-  .navbar li .dropdown.active .dropdown ul li a:hover { color: #d04526; } }
+  .navbar li .dropdown.active .dropdown ul li a:hover { color: #4d4b4b; } }
 
 .navbar li .dropdown ul { margin: 0; display: block; }
 .navbar li .dropdown ul > li { position: relative; display: block; width: 100%; float: left; text-align: left; height: auto; -webkit-border-radius: none; -moz-border-radius: none; -ms-border-radius: none; -o-border-radius: none; border-radius: none; }
 @media only screen and (min-width: 768px) and (max-width: 939px) { .navbar li .dropdown ul > li { max-width: 320px; word-wrap: break-word; } }
-.navbar li .dropdown ul > li a { display: block; padding: 0 20px; color: #d04526; border-bottom: 1px solid #cccccc; text-shadow: none; height: 51px; line-height: 49px; }
+.navbar li .dropdown ul > li a { display: block; padding: 0 20px; color: #4d4b4b; border-bottom: 1px solid #cccccc; text-shadow: none; height: 51px; line-height: 49px; }
 @media only screen and (max-width: 767px) { .navbar li .dropdown ul > li a { padding: 0 20px; } }
 .navbar li .dropdown ul > li .dropdown { display: none; background: white; }
 .navbar li .dropdown ul li:first-child a { -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; }
@@ -2245,7 +2245,7 @@ img { -ms-interpolation-mode: bicubic; }
 @media only screen and (max-width: 767px) { .gumby-no-touch .navbar ul li:hover .dropdown ul { overflow: auto; background: #36393b; }
   .gumby-no-touch .navbar ul li:hover .dropdown ul li { border-bottom: #3e4043; }
   .gumby-no-touch .navbar ul li:hover .dropdown ul li a { color: white; border-bottom: 1px solid #313436; }
-  .gumby-no-touch .navbar ul li:hover .dropdown ul li a:hover { color: #d04526; } }
+  .gumby-no-touch .navbar ul li:hover .dropdown ul li a:hover { color: #4d4b4b; } }
 
 .gumby-no-touch .navbar li .dropdown ul > li:hover .dropdown, .gumby-touch .navbar li .dropdown ul > li.active .dropdown { border-top: none; display: block; position: absolute; z-index: 9999; left: 100%; top: 0; margin-top: 0; }
 @media only screen and (max-width: 767px) { .gumby-no-touch .navbar li .dropdown ul > li:hover .dropdown, .gumby-touch .navbar li .dropdown ul > li.active .dropdown { position: relative; left: 0; }
@@ -2479,7 +2479,7 @@ form fieldset legend { padding: 5px 10px; }
 .badge.warning a, .label.warning a { color: #644405; }
 .badge.success, .label.success { background: #58c026; border: 1px solid #58c026; }
 .badge.light, .label.light { background: #fff; color: black; border: 1px solid #f2f2f2; }
-.badge.light a, .label.light a { color: #d04526; }
+.badge.light a, .label.light a { color: #4d4b4b; }
 .badge.dark, .label.dark { background: #212121; border: 1px solid #212121; }
 
 .badge { padding: 0 10px; font-size: 14px; font-size: 0.875rem; -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; }
@@ -2590,8 +2590,6 @@ utility
 ============================================*/
 .pad50RL { padding-left: 70px; padding-right: 70px; }
 
-.pad30B { padding-bottom: 30px; }
-
 .textRight { text-align: right; }
 
 .textCenter { text-align: center; }
@@ -2601,66 +2599,64 @@ utility
 /*============================================
 main
 ============================================*/
+h1 { font-size: 26px; font-weight: 800; line-height: 1; }
+
+h2 { display: block; color: #4d4b4b; font-weight: 800; font-size: 18px; font-weight: 800; border-bottom: 2px solid #4d4b4b; margin-bottom: 15px; }
+
+a { text-decoration: underline; }
+a:hover, a:focus { text-decoration: none; }
+
 .small { position: relative; top: -13px; font-size: .7em; /* refactor this into a function -- want it to be a percentage smaller than the surrounding text rather than hard-coded */ }
+
+.med { font-size: 1.3em; }
 
 .large { position: relative; font-size: 2em; }
 
-.section { overflow: hidden; }
-
-.top { padding: 20px 20px 80px 20px; background: url(../img/oil_blur.jpg) no-repeat top center fixed; height: 400px; color: white; }
-.top .intro { background-color: rgba(0, 0, 0, 0.4); margin-top: -20px; margin-left: 20px; padding: 30px; }
-.top h1 { display: inline-block; color: white; font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #d54740; padding-left: 20px; padding-right: 20px; margin-bottom: 10px; }
-.top p + p { border-bottom: 1px solid #0793cd; padding-bottom: 30px; }
-
-.title { text-align: center; padding-top: 60px; padding-bottom: 20px; }
-.title h1 { color: white; font-size: 26px; font-weight: 700; }
-
-.about { padding: 40px 0 50px 0; position: relative; top: -45px; }
-.about h1 { font-size: 26px; font-weight: 800; line-height: 1; }
-.about h2 { display: block; color: #4d4b4b; font-weight: 800; font-size: 18px; font-weight: 800; border-bottom: 2px solid #4d4b4b; margin-bottom: 15px; }
-
-.aboutText p { font-size: 0.82em; line-height: 1em; padding-left: 5px; }
-
-.aboutImg { height: 40px; float: right; }
-
-.share { float: right; height: 35px; padding-left: 20px; margin-bottom: 20px; }
-
-.up45 { position: relative; top: -45px; }
-
-.dataBlock { vertical-align: middle; text-align: center; }
-.dataBlock .line { border-bottom: 2px solid black; margin-top: 140px; }
-.dataBlock .circle { z-index: 50; margin-top: -130px; margin-bottom: 60px; height: 250px; width: 250px; background-color: #6ab5c3; border: 2px solid black; border-radius: 50%; }
-.dataBlock .circle img { width: 80px; }
-.dataBlock .circle:hover, .dataBlock .circle:focus { height: 250px; width: 250px; border-radius: 50%; border: 2px solid black; background-color: #8ec7d2; }
-.dataBlock .circle a { display: block; }
-.dataBlock h2 { padding-top: 20%; font-size: 26px; color: white; font-weight: 700; padding-right: 15px; padding-left: 15px; }
-.dataBlock .graph h2 { padding-top: 30%; }
-
-.reportBlock { padding: 50px 0 50px 0; }
-.reportBlock h1, .reportBlock h2 { font-size: 26px; font-weight: 700; }
-.reportBlock .reportYears { text-align: right; padding-right: 20px; }
-.reportBlock .reportYears h1 { padding-bottom: 20px; }
-.reportBlock .reportSummary { background-color: #4d4b4b; padding: 30px 40px 30px 40px; }
-.reportBlock .reportSummary p { line-height: 1.2em; font-style: italic; }
-.reportBlock .download { border: 1px solid #954a3c; padding-left: 8px; padding-bottom: 4px; background-color: black; }
-.reportBlock .download a { display: block; font-size: 1.4em; font-weight: 700; font-style: italic; color: white; }
-.reportBlock .download a:hover, .reportBlock .download a:focus { color: #10b3f7; }
+.section { padding: 40px 0 50px 0; overflow: hidden; }
 
 .putty { background-color: #eaedf1; }
 
-.orange { background-color: #da5804; }
+.gray { background-color: #bcbfc4; }
+
+.top { padding: 20px 20px 80px 20px; background: url(../img/oil_blur.jpg) no-repeat top center fixed; color: white; }
+.top .intro { background-color: rgba(0, 0, 0, 0.4); margin-top: -20px; margin-left: 20px; padding: 30px; }
+.top .intro p { font-size: 16px; line-height: 1.2em; }
+.top h1 { display: inline-block; color: white; font-size: 2.16em; line-height: 1em; font-weight: 700; background-color: #d54740; padding-left: 20px; padding-right: 20px; margin-bottom: 10px; }
+
+.sectors h1 { padding-bottom: 30px; }
+.sectors p { font-size: 0.82em; line-height: 1em; padding-left: 5px; }
+
+.where h1 { /*padding: 0 30px 30px 30px;*/ }
+.where h2 { text-transform: uppercase; font-size: 16px; }
+.where .offshore h2, .where .offshore h3 { color: #7f5078; border-bottom-color: #7f5078; }
+.where .onshore h2, .where .onshore h3 { color: #cc4e47; border-bottom-color: #cc4e47; }
+.where h3 { text-transform: uppercase; font-size: 13px; font-weight: 800; }
+.where p { font-size: 16px; padding-left: 0px; }
+
+.sectorImg { height: 40px; float: right; }
+
+.share { float: right; height: 35px; padding-left: 20px; margin-bottom: 20px; }
+
+.break { padding: 12px 20px 11px 20px; background: url(../img/unsplash_fuzzy_lights.jpg) no-repeat center center fixed; background-size: cover; text-align: center; }
+
+.tree h1 { padding: 20px 0 5px 0; }
+
+.dollars h1 { padding: 40px 0 20px 0; }
+
+.whereInfo { padding-top: 50px; }
+.whereInfo img { height: 70px; }
+
+.how p { font-size: 16px; padding-left: 0px; line-height: 1.2em; }
 
 .blue { background-color: #6ab5c3; }
 
 .brown { background-color: #954a3c; }
 
-.arrows { margin-top: -23px; }
-.arrows img { width: 60px; }
+.purple { color: #7f5078; }
 
-.leader { font-weight: 700; font-size: 18px; }
-
-.orange { color: #da5804; }
+.orange { color: #cc4e47; }
 
 /*============================================
-data and information
+footer
 ============================================*/
+.footer h1 { font-size: 16px; }
