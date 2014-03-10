@@ -5,8 +5,8 @@ utility
   padding-left: 70px;
   padding-right: 70px;
 }
-.pad50B {
-  padding-bottom: 50px;
+.pad30B {
+  padding-bottom: 30px;
 }
 .textRight {
   text-align: right;
@@ -110,8 +110,27 @@ top: -45px;
     font-size: $med;
     font-weight: 800;
     border-bottom: 2px solid #4d4b4b;
+    margin-bottom: 15px;
   }
 }
+.aboutText {
+  p {
+  font-size: 0.82em;
+  line-height: 1em;
+  padding-left: 5px;
+  }
+}
+.aboutImg {
+  height: 40px;
+  float: right;
+}
+.share {
+  float:right;
+  height: 35px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
 .up45 {
   position: relative;
   top: -45px;
@@ -213,17 +232,6 @@ background-color: $brown;
   margin-top: -23px;
   img {
   width: 60px;
-  }
-}
-.aboutText {
-  p {
-  text-align: center;
-  padding-right: 20px;
-  padding-left: 20px;
-  }
-  p+p {
-  text-align: left;
-  padding-top: 20px;
   }
 }
 .leader {
