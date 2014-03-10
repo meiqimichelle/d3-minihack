@@ -1,0 +1,286 @@
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+<script>
+
+
+/* return a style attribute as a number (instead of string like '100px') */
+function styleAttrAsNumber(d3_element, style_name) {
+  style_str = d3_element.style(style_name);
+  return Number(style_str.slice(0,-2));
+}
+
+
+
+/*
+
+Michelle sent in this color pallette information...
+Colors for the pie chart:
+Mint green: #69d6c5
+Purple: #906884
+Khaki: #aeab97
+Orange: #fc615e
+Blue: #00a0d9 <-- not on original mockup, but I think we need 5 categories, if I remember right
+Tan: #d7d2bb <-- for the surrounding circle/edge of pie chart, if we can do that. ie, if there's an easy way to say, add a stroke on just the outside edge of the pie.
+
+Colors in the bar chat:
+Blue: #00a0d9
+Light blue: #8dc2e7
+Dark gray: #605e5e (text)
+Light gray: #929497
+
+*/
+
+pie_chart_colors = new Array(5);
+pie_chart_colors[0] = '#906884';
+pie_chart_colors[1] = '#aeab97';
+pie_chart_colors[2] = '#00a0d9';
+pie_chart_colors[3] = '#fc615e';
+pie_chart_colors[4] = '#69d6c5';
+
+bar_chart_colors = new Array(4);
+bar_chart_colors[0] = '#00a0d9';
+bar_chart_colors[1] = '#8dc2e7';
+bar_chart_colors[2] = '#605e5e';
+bar_chart_colors[3] = '#929497';
+
+// This makes sure we won't run off the end if we end up with more categories
+// (Though a color will get reused!)
+function get_pie_chart_color(i) {
+    return pie_chart_colors[i % pie_chart_colors.length];
+}
+function get_bar_chart_color(i) {
+    return bar_chart_colors[i % bar_chart_colors.length];
+}
+
+  // nice pie chart example: https://gist.github.com/enjalot/1203641
+  var gOrig = null;
+  var gData = null;
+
+  queue()
+    .defer(d3.csv, "https://docs.google.com/spreadsheet/pub?key=0AjPWVMj9wWa6dGw3b1c3ZHRSMW92UTJlNXRLTXZ0RUE&single=true&gid=0&output=csv")
+    .await(ready);
+
+  // load and display the data
+  function ready(error, fedroyaltydata) {
+    if (error) return console.log("there was an error loading the data: " + error);
+
+    gOrig = fedroyaltydata; // for debugging
+    console.log("======== data =========")
+
+/** format like this:
+    data = [{"label":"one", "value":20},
+      {"label":"two", "value":50},
+      {"label":"three", "value":30}];
+**/
+    pie_data = [];
+    revenue_data = []
+    for (row_index in fedroyaltydata) {
+      row = fedroyaltydata[row_index];
+      year = row["Year"]
+      pie_data[year] = [];
+      for (column_name in row) {
+        field = row[column_name];
+        field = field.substring(1); // remove leading $
+        field = +field;             // cast to a number
+
+        if (column_name == "Grand Total") {
+          revenue_data.push({year:year, revenue:field});
+        }
+
+        if (column_name != "Year" && column_name != "Grand Total") {
+          pie_data[year].push({label:column_name, value:field});
+        }
+      }
+    }
+
+    // for now let's just work with a single year
+    data = pie_data[2003];
+    console.log("revenue", revenue_data)
+    console.log("pie data for 2003", data)
+    gData = data; // for debugging
+
+
+// Ideally these would both be nice pure functions,
+// But right now they share tons of global variables!
+    var pie_svg = d3.select("#viz-one").append("svg").attr("class", "pie")
+
+
+    /* basic frame */
+    var bar_char_margin = {top: 0, right: 20, bottom: 30, left: 40};
+
+    var bar_svg = d3.select("#viz-one").append("svg").attr("class", "bar")
+    var inner_bars = bar_svg
+      .append("g").attr("class", "inner_bars")
+      .attr("transform", "translate(" + bar_char_margin.left + "," + bar_char_margin.top + ")");
+
+    setup_pie_chart(".pie", pie_data[2003]);
+    render_bar_chart(bar_svg, inner_bars, bar_char_margin);
+
+function render_bar_chart(container_svg, svg, margin) {
+  console.log("======== bar chart =========")
+  var width = styleAttrAsNumber(container_svg, "width") - margin.left - margin.right;
+  var height = styleAttrAsNumber(container_svg, "height") - margin.top - margin.bottom;
+
+  /* bar chart parameters */
+
+  var formatPercent = d3.format(".0%");
+
+  var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+    .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+      return "<strong>Revenue:</strong> <span style='color:red'>" + d.revenue + "</span>";
+    })
+
+  svg.call(tip);
+
+    x.domain(revenue_data.map(function(d) { return d.year; }));
+    y.domain([0, d3.max(revenue_data, function(d) { return d.revenue; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      /*    .call(yAxis)
+       .append("text") */
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Revenue");
+
+  svg.selectAll(".bar")
+      .data(revenue_data)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.revenue); })
+      .attr("height", function(d) { return height - y(d.revenue); })
+/* Just testing, will put palette in here.... */
+      .attr("fill", function(d,i) {
+         return get_bar_chart_color(i);
+      })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide)
+      .on('click', clickedOnABar)
+}
+
+var color = d3.scale.category20c();     //builtin range of colors
+
+function get_pie_attrs(svg) {
+  var pie_width = styleAttrAsNumber(svg, "width");
+  var pie_height = styleAttrAsNumber(svg, "height");
+  var r = Math.min(pie_height, pie_width) / 3;
+  return {width:pie_width, height:pie_height, radius:r}
+}
+function setup_pie_chart(svg_selector, local_pie_data) {
+  console.log("======== setup pie chart: once =========")
+  svg = d3.select(svg_selector);
+  attrs = get_pie_attrs(svg)
+  pie_width = attrs.width;
+  pie_height = attrs.height;
+  r = attrs.radius;
+
+  var center = {x: pie_width / 2, y: pie_height / 2 }
+
+  var vis = svg
+    .append("svg:g")                //make a group to hold our pie chart
+    .attr("transform", "translate(" + center.x + "," + center.y + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+  render_pie_chart(svg_selector, local_pie_data);
+}
+function render_pie_chart(svg_selector, local_pie_data) {
+
+  /* pie chart parameters */
+  svg = d3.select(svg_selector);
+  attrs = get_pie_attrs(svg)
+  pie_width = attrs.width;
+  pie_height = attrs.height;
+  r = attrs.radius;
+
+  vis = svg.select('g')
+      .data([local_pie_data])                   //associate our data with the document
+
+  console.log("======== render pie chart data=========")
+
+    console.log("create <path> elements for us using arc data")
+
+    var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
+      .outerRadius(r);
+    var fill = function(d, i) {  return get_pie_chart_color(i); }
+
+    console.log("create arc data for us given a list of values")
+
+    var pie = d3.layout.pie()           //this will create arc data for us given a list of values
+      .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
+
+    var arcs = vis.selectAll("path")     //this selects all <g> elements with class slice (there aren't any yet)
+      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+      .attr("fill", fill ) //set the color for each slice to be chosen from the color function defined above
+      .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+
+    arcs.enter().append("svg:path")
+      .attr("fill", fill ) //set the color for each slice to be chosen from the color function defined above
+      .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+
+    arcs.exit().remove();
+
+    console.log("add a label to each slice")
+
+    var offset = 0
+    var transform = function(d) {                    //set the label's origin to the center of the arc
+      //we have to make sure to set these before calling arc.centroid
+      var angle = d.endAngle - d.startAngle;
+      console.log(d.data.label, angle, d);
+      if (angle > 0.3 ) d.innerRadius = r * 0.6;
+      else {
+        if (angle < 0.5) offset -= 20;
+        else offset = 0;
+        d.innerRadius = r * 1.4 + offset;
+      }
+      console.log(d.innerRadius)
+      return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
+    }
+    var text_label = function(d, i) { return local_pie_data[i].label; }
+
+    var labels = vis.selectAll("text")     //this selects all <g> elements with class slice (there aren't any yet)
+      .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+      .attr("transform", transform)
+      .text(text_label);        //get the label from our original data array
+
+    labels.enter().append("svg:text")                                     //add a label to each slice
+        .attr("transform", transform)
+        .attr("text-anchor", "middle")                          //center the text on it's origin
+        .text(text_label);        //get the label from our original data array
+
+    labels.exit().remove();
+
+}
+
+  function clickedOnABar(d) {
+    render_pie_chart(".pie", pie_data[d.year]);
+  }
+
+  }
+
+</script>

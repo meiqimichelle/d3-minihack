@@ -4,6 +4,22 @@
 # TEAM
 
     Michelle Hertzfeld -- Designer and Developer -- @meiqimichelle
+    Jon Swedin -- Data wrangler -- Department of the Interior, Office of Natural Resources Revenue
+    Chris Mentasti -- Data wrangler -- Department of the Interior, Office of Natural Resources Revenue
+    Robert Kronebusch -- Data wrangler -- Department of the Interior, Office of Natural Resources Revenue
+
+# CREDITS - ICONS
+    
+    Oil by Edward Boatman from The Noun Project
+    Dog Tags by Simon Child from The Noun Project
+    Education by Thibault Geffroy from The Noun Project
+    Rock by Anuar Zhumaev from The Noun Project
+    Share by Wayne Middleton from The Noun Project
+    Farm by Jane Pellicciotto from The Noun Project
+    Vertical Ellipsis by Stephan Langenegger from The Noun Project
+
+    All other icons in the public domain
+
 
 # THANKS
 
@@ -20,5 +36,5 @@
         Web: www.digitalsurgeons.com
         Web: www.gumbyframework.com
     Software: Sass, Compass
-    Typography: 
+    Typography: Lato
                                              
