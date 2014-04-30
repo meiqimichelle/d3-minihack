@@ -10,9 +10,9 @@ var where_stats_data = {
 			"Title" : "U.S. Treasury", 
 			"Content" : "Some offshore revenue goes into the U.S. General Fund, which is the same place that money from individual and corporate income taxes go. The General Fund pays for roughly two-thirds of all federal expenditures, including:", 
 			"PayFor" : "This is where the images would go with what this fund pays for.",
-			"Img1" : "<img src=\"/assets/img/icon_1397.svg\" alt=\"Dogtags\"><h3>U.S. Military</h3>",
-			"Img2" : "<img src=\"/assets/img/icon_13130.svg\" alt=\"Park\"><h3>U.S. Parks</h3>",
-			"Img3" : "<img src=\"/assets/img/icon_1567.svg\" alt=\"Book and test tube\"><h3>U.S. Schools</h3>"
+			"Img1" : "<img src=\"http://meiqimichelle.github.io/d3-minihack/assets/img/icon_1397.svg\" alt=\"Dogtags\"><h3>U.S. Military</h3>",
+			"Img2" : "<img src=\"http://meiqimichelle.github.io/d3-minihack/assets/img/icon_13130.svg\" alt=\"Park\"><h3>U.S. Parks</h3>",
+			"Img3" : "<img src=\"http://meiqimichelle.github.io/d3-minihack/assets/img/icon_1567.svg\" alt=\"Book and test tube\"><h3>U.S. Schools</h3>"
 		}, 
 		{ 	
 			//Array ID -> 1 
