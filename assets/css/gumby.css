@@ -2610,7 +2610,9 @@ a:hover, a:focus { text-decoration: none; }
 
 .med { font-size: 1.3em; }
 
-.large { position: relative; font-size: 2em; }
+.large { position: relative; font-size: 2.2em; }
+
+.secondaryType { font-family: "Raleway", sans-serif; }
 
 .section { padding: 40px 0 50px 0; overflow: hidden; }
 
@@ -2626,13 +2628,6 @@ a:hover, a:focus { text-decoration: none; }
 
 .sectors h1 { padding-bottom: 30px; }
 .sectors p { font-size: 0.82em; line-height: 1em; padding-left: 5px; }
-
-.where h1 { /*padding: 0 30px 30px 30px;*/ }
-.where h2 { text-transform: uppercase; font-size: 16px; }
-.where .offshore h2, .where .offshore h3 { color: #7f5078; border-bottom-color: #7f5078; }
-.where .onshore h2, .where .onshore h3 { color: #cc4e47; border-bottom-color: #cc4e47; }
-.where h3 { text-transform: uppercase; font-size: 13px; font-weight: 800; }
-.where p { font-size: 16px; padding-left: 0px; }
 
 .sectorImg { height: 40px; float: right; }
 
@@ -2656,6 +2651,50 @@ a:hover, a:focus { text-decoration: none; }
 .purple { color: #7f5078; }
 
 .orange { color: #cc4e47; }
+
+.where h1 { /*padding: 0 30px 30px 30px;*/ }
+.where h2 { text-transform: uppercase; font-size: 16px; }
+.where .offshore { min-height: 370px; }
+.where .offshore h2, .where .offshore h3, .where .offshore a { color: #7f5078; border-bottom-color: #7f5078; }
+.where .onshore h2, .where .onshore h3, .where .onshore a { color: #cc4e47; border-bottom-color: #cc4e47; }
+.where h3 { text-transform: uppercase; font-size: 13px; font-weight: 800; }
+.where p { font-size: 16px; padding-left: 0px; }
+
+.stats-offshore, .stats-onshore { width: 100%; height: 270px; }
+
+.stats-offshore > div, .stats-onshore > div { position: relative; margin-right: 0.5%; padding: 10px; }
+.stats-offshore > div p, .stats-onshore > div p { font-family: "Raleway", sans-serif; font-weight: 900; font-size: 30px; line-height: 1em; }
+.stats-offshore > div:hover, .stats-offshore > div:focus, .stats-onshore > div:hover, .stats-onshore > div:focus { opacity: 0.75; }
+
+.stats-offshore div:nth-child(1), .stats-onshore div:nth-child(1) { width: 49.5%; background-color: #7E5177; float: left; height: 100%; }
+
+.stats-offshore div:nth-child(2) { width: 49.5%; background-color: #9A6B93; float: right; height: 63.5%; margin-bottom: .5%; }
+.stats-offshore div:nth-child(2) p { font-size: 48px; }
+
+.stats-offshore div:nth-child(3) { width: 22.5%; background-color: #B595B0; float: right; height: 35.5%; padding-left: 5px; }
+.stats-offshore div:nth-child(3) p { font-size: 18px; }
+
+.stats-offshore div:nth-child(4) { width: 26.5%; background-color: #B183AA; float: right; height: 35.5%; padding-left: 5px; padding-right: 0px; }
+.stats-offshore div:nth-child(4) p { font-size: 0.95em; margin: -0.8em auto auto 34%; }
+
+.stats-offshore > div h1, .stats-onshore > div h1 { margin: 0; padding-top: 0; padding-bottom: 0.5em; font-size: 18px; text-transform: uppercase; font-weight: 600; }
+
+.stats-offshore div:nth-child(3) h1, .stats-offshore div:nth-child(4) h1 { padding-top: 1.8em; padding-bottom: 0.25em; font-size: 0.8em; }
+
+.stats-offshore > div i, .stats-onshore > div i { position: absolute; text-align: right; font-family: "Lato", sans-serif; font-weight: 900; font-size: 48px; color: #452941; top: 5px; right: 5px; }
+
+.stats-onshore div:nth-child(1) { background-color: #CA4F4A; }
+.stats-onshore div:nth-child(1) p { font-size: 48px; }
+
+.stats-onshore div:nth-child(2) { width: 49.5%; background-color: #E16762; float: right; height: 73.5%; margin-bottom: .5%; }
+.stats-onshore div:nth-child(2) p { font-size: 48px; }
+
+.stats-onshore div:nth-child(3) { width: 49.5%; background-color: #E68F8B; float: right; height: 25.5%; }
+.stats-onshore div:nth-child(3) p { font-size: 26px; }
+
+.stats-onshore div:nth-child(3) h1 { padding-bottom: 0.25em; font-size: 18px; }
+
+.stats-onshore > div i { color: #7E3533; }
 
 /*============================================
 footer

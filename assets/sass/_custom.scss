@@ -52,7 +52,10 @@ a {
 }
 .large {
   position: relative;
-  font-size: 2em; 
+  font-size: 2.2em; 
+}
+.secondaryType {
+  font-family: $font-family-secondary;
 }
 
 .section {
@@ -135,36 +138,7 @@ color: $white;
     padding-left: 5px;
   }
 }
-.where {
-  h1 {
-    /*padding: 0 30px 30px 30px;*/
-  }
-  h2 {
-    text-transform: uppercase;
-    font-size: $norm;
-  }
-  .offshore {
-    h2, h3 {
-      color: $purple1;
-      border-bottom-color: $purple1;
-    }
-  }
-  .onshore {
-    h2, h3 {
-      color: $orange1;
-      border-bottom-color: $orange1;
-    }
-  }
-  h3 {
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: 800;
-  }
-  p {
-    font-size: $norm;
-    padding-left: 0px;
-  }
-}
+
 .sectorImg {
   height: 40px;
   float: right;
@@ -218,6 +192,149 @@ background-color: $brown;
 .orange {
   color: $orange1;
 }
+.where {
+  h1 {
+    /*padding: 0 30px 30px 30px;*/
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: $norm;
+  }
+  .offshore {
+    min-height: 370px;
+    h2, h3, a {
+      color: $purple1;
+      border-bottom-color: $purple1;
+    }
+  }
+  .onshore {
+    h2, h3, a {
+      color: $orange1;
+      border-bottom-color: $orange1;
+    }
+  }
+  h3 {
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  p {
+    font-size: $norm;
+    padding-left: 0px;
+  }
+}
+.stats-offshore, .stats-onshore {
+  width: 100%;
+  height: 270px;
+}
+.stats-offshore > div, .stats-onshore > div {
+  position: relative; 
+  margin-right: 0.5%;
+  padding: 10px;
+p {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-superbold;
+  font-size: $larger;
+  line-height: 1em;
+  }
+&:hover, &:focus {
+  opacity: 0.75;
+}
+}
+.stats-offshore div:nth-child(1), .stats-onshore div:nth-child(1) {
+  width: 49.5%;
+  background-color: #7E5177;
+  float: left;  
+  height: 100%;   
+}
+.stats-offshore div:nth-child(2) {
+  width: 49.5%;
+  background-color: #9A6B93;
+  float: right;
+  height: 63.5%;
+  margin-bottom: .5%;
+  p {
+    font-size: $xxlarge;
+  }
+}
+.stats-offshore div:nth-child(3) {
+  width: 22.5%;
+  background-color: #B595B0;   
+  float: right;
+  height: 35.5%;
+  padding-left: 5px;
+  p {
+    font-size: $med;
+  }
+}
+.stats-offshore div:nth-child(4) {
+  width: 26.5%;
+  background-color: #B183AA; 
+  float: right;
+  height: 35.5%;
+  padding-left: 5px;
+  padding-right: 0px;
+  p {
+    font-size: 0.95em;
+    margin: -0.8em auto auto 34%;
+  }
+}
+.stats-offshore > div h1, .stats-onshore > div h1 {
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0.5em;
+  font-size: $med;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+}
+.stats-offshore div:nth-child(3) h1, .stats-offshore div:nth-child(4) h1 {
+  padding-top: 1.8em;
+  padding-bottom: 0.25em;
+  font-size: 0.8em;
+}
+.stats-offshore > div i, .stats-onshore > div i {
+  position: absolute;
+  text-align: right;
+  font-family: $font-family;
+  font-weight: $font-weight-superbold;
+  font-size: $xxlarge;
+  color: #452941;
+  top: 5px;
+  right: 5px;
+}
+.stats-onshore div:nth-child(1) {
+  background-color: #CA4F4A;
+  p {
+    font-size: $xxlarge;
+  }
+}
+.stats-onshore div:nth-child(2) {
+  width: 49.5%;
+  background-color: #E16762;
+  float: right;
+  height: 73.5%;
+  margin-bottom: .5%;
+  p {
+    font-size: $xxlarge;
+  }
+}
+.stats-onshore div:nth-child(3) {
+  width: 49.5%;
+  background-color: #E68F8B;   
+  float: right;
+  height: 25.5%;
+  p {
+    font-size: $large;
+  }
+}
+.stats-onshore div:nth-child(3) h1 {
+  padding-bottom: 0.25em;
+  font-size: $med;
+}
+.stats-onshore > div i {
+  color: #7E3533;
+}
+
 
 /*============================================
 footer
