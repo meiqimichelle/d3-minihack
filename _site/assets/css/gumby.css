@@ -2654,8 +2654,10 @@ a:hover, a:focus { text-decoration: none; }
 
 .where h1 { /*padding: 0 30px 30px 30px;*/ }
 .where h2 { text-transform: uppercase; font-size: 16px; }
+.where span.click-me { font-weight: 900; }
 .where .offshore { min-height: 370px; }
 .where .offshore h2, .where .offshore h3, .where .offshore a { color: #7f5078; border-bottom-color: #7f5078; }
+.where .onshore { min-height: 380px; }
 .where .onshore h2, .where .onshore h3, .where .onshore a { color: #cc4e47; border-bottom-color: #cc4e47; }
 .where h3 { text-transform: uppercase; font-size: 13px; font-weight: 800; }
 .where p { font-size: 16px; padding-left: 0px; }

@@ -200,6 +200,9 @@ background-color: $brown;
     text-transform: uppercase;
     font-size: $norm;
   }
+  span.click-me {
+    font-weight: 900;
+  }
   .offshore {
     min-height: 370px;
     h2, h3, a {
@@ -208,6 +211,7 @@ background-color: $brown;
     }
   }
   .onshore {
+    min-height: 380px;
     h2, h3, a {
       color: $orange1;
       border-bottom-color: $orange1;
