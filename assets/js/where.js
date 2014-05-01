@@ -90,14 +90,6 @@ $(document).ready(function() {
 			$('#payimgs-off div:nth-child(3)').html(where_stats_data.statsOffshore[active_square].Img3);
 
 		})
-		// function(){ //When hover ends 
-
-		// 	//Reset offshore to defaults 
-		// 	$('#offshore h2').html("Go On"); 
-		// 	$('#offshore p').html("Hover over one of the sections for more information"); 
-		// 	//$('#offshore').css("background-image", ''); 
-
-		// })
 	$('.stats-onshore > div').click(function(){  
 
 			//Get the ID of the current click div
@@ -113,8 +105,3 @@ $(document).ready(function() {
 
 		})
 });
-
-
-
-// default div
-// then append div depending on what you hover over

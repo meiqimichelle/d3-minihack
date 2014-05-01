@@ -1,5 +1,5 @@
 name: Prototype Natural Resource Revenues from U.S. Public Land Site
-markdown:    maruku
+markdown:    kramdown
 markdown_ext:  markdown,mkd,mkdn,md
 
 safe: true
@@ -7,8 +7,8 @@ lsi: false
 pygments: true
 auto: true
 
-url:             http://meiqimichelle.github.io/d3-minihack
-#url:              http://localhost:4000
+#url:             http://meiqimichelle.github.io/d3-minihack
+url:              http://localhost:4000
 # Comment out url when working locally to resolve base urls correctly or change to http://localhost:4000
 
 include: [".htaccess"]

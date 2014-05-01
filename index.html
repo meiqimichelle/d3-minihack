@@ -9,12 +9,13 @@ description: This is a sample beta site for Federal natural resource revenues.
       <div class="row">
           <div class="seven columns">
               <h1>Natural Resource Revenue</h1>
-              <h1><span class="small">from</span> U.S. Public Lands</h1>
+              <h1><span class="small">from</span> U.S. Federal Lands</h1>
           </div>
       </div>
       <div class="row">
           <div class="nine columns intro">
               <p>The U.S. earns revenue on natural resources extracted from its lands. This is a major source of revenue for the country and for local municipalities. This site provides an overview of this process, and statistics and data about this industry.</p>
+              <img src="{{ site.url }}/assets/img/scroll-down.png" alt="You should scroll down. There is more to learn!" class="moreDown">
               <p>Learn more by scrolling down, or <a href="http://presidential-innovation-fellows.github.io/ridb-kibana/index.html#/dashboard/elasticsearch/Natural%20Resource%20Revenues%20by%20Company" class="test">jump straight to the data.</a></p>
           </div>
       </div>
@@ -146,8 +147,8 @@ description: This is a sample beta site for Federal natural resource revenues.
           <div class="nine columns"></div>
         </div>
         <div id="payimgs-on2" class="row">
-          <div class="nine columns textRight"></div>
-          <div class="three columns textCenter"></div>
+          <div class="nine columns textRight up15"></div>
+          <div class="three columns textCenter up15"></div>
         </div>
       </div>
     </div>
@@ -186,11 +187,26 @@ description: This is a sample beta site for Federal natural resource revenues.
     <div class="row">
       <div class="twelve columns">
         <h1 class="large">Explore natural resource leases</h1>
-        <img src="{{ site.url }}/assets/img/map-mock.png" alt="Mockup of interactive map displaying lease data.">
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns contain">
+        <div id='map'></div>
       </div>
     </div>
   </div>
   <!-- END map area, how do natural resources become Federal revenue? -->
 </div>
+
+<style>
+.leaflet-popup-close-button {
+  display: none;
+  }
+.leaflet-popup-content-wrapper {
+  pointer-events: none;
+  }
+</style>
+<script src='{{ site.url }}/assets/data/revenue2013.json'></script>
+<script src='{{ site.url }}/assets/js/onrrmap.js'></script>
 
 {% include footer.html %}
