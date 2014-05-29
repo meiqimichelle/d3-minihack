@@ -7,8 +7,10 @@ lsi: false
 pygments: true
 auto: true
 
-url:             http://meiqimichelle.github.io/d3-minihack
-#url:              http://localhost:4000
+#url:           http://meiqimichelle.github.io/d3-minihack/
+#url:           http://localhost:4000/
+url:			''
+title:			Natural Resource Revenue from U.S. Federal Lands
 # Comment out url when working locally to resolve base urls correctly or change to http://localhost:4000
 
 include: [".htaccess"]
