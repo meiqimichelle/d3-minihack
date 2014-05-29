@@ -2622,7 +2622,20 @@ a:hover, a:focus { text-decoration: none; }
 
 .gray { background-color: #bcbfc4; }
 
-.top { padding: 20px 20px 50px 20px; background: url(../img/oil_blur.jpg) no-repeat top center fixed; color: white; border-bottom: 6px solid rgba(0, 0, 0, 0.3); }
+.usa { width: 100%; height: 20px; line-height: 20px; font-size: small; text-align: center; background: #7ea0b7; position: absolute; top: 0; left: 0; z-index: 9000; }
+
+.nav { background: #8dc2e7; background: rgba(141, 194, 231, 0.65); border-top: 6px solid rgba(0, 0, 0, 0.3); margin-top: 40px; }
+.nav ul { width: 100%; float: left; list-style: none; }
+.nav li { font-weight: 600; float: left; padding: 5px 3px 3px 3px; margin-right: 32px; border-left: 1px solid black; display: block; }
+.nav a { color: black; text-decoration: none; }
+.nav a:hover, .nav a:focus { color: white; }
+
+ul.menu a.active li { color: #f1f4f7; }
+ul.menu a.active li:hover, ul.menu a.active li:focus { color: white; }
+
+ul.menu a.active li::before { content: "\2605 "; }
+
+.top { padding: 50px 0px 0px 0px; background: url(../img/oil_blur.jpg) no-repeat top center fixed; color: white; }
 .top .intro { background-color: rgba(0, 0, 0, 0.45); margin-left: 20px; padding: 20px 30px 15px 30px; }
 .top .intro p { font-size: 18px; line-height: 1.2em; }
 .top .intro a { color: white; }
@@ -2637,10 +2650,12 @@ a:hover, a:focus { text-decoration: none; }
 
 .share { float: right; height: 35px; padding-left: 20px; margin-bottom: 20px; }
 
-.break { padding: 12px 20px 4px 20px; background: url(../img/unsplash_fuzzy_lights.jpg) no-repeat center center fixed; background-size: cover; text-align: center; }
+.break { padding: 8px 20px 0px 20px; background: url(../img/unsplash_fuzzy_lights.jpg) no-repeat center center fixed; background-size: cover; text-align: center; }
+.break .down { width: 36px; }
 
 .tree h1 { padding: 20px 0 5px 0; }
 
+.dollars { margin-top: -30px; }
 .dollars h1 { padding: 40px 0 20px 0; }
 
 .whereInfo { padding-top: 50px; }
@@ -2648,7 +2663,7 @@ a:hover, a:focus { text-decoration: none; }
 
 .how p { font-size: 16px; padding-left: 0px; line-height: 1.2em; }
 
-.blue { background-color: #6ab5c3; }
+.blue { background-color: #7ea0b7; }
 
 .brown { background-color: #954a3c; }
 
@@ -2661,7 +2676,7 @@ a:hover, a:focus { text-decoration: none; }
 .where span.click-me { font-weight: 900; }
 .where .offshore { min-height: 370px; }
 .where .offshore h2, .where .offshore h3, .where .offshore a { color: #7f5078; border-bottom-color: #7f5078; }
-.where .onshore { min-height: 370px; }
+.where .onshore { min-height: 370px; margin-top: -20px; }
 .where .onshore h2, .where .onshore h3, .where .onshore a { color: #cc4e47; border-bottom-color: #cc4e47; }
 .where h3 { text-transform: uppercase; font-size: 13px; font-weight: 800; }
 .where p { font-size: 16px; padding-left: 0px; }
@@ -2711,14 +2726,22 @@ Mapbox
 
 .map-legend .swatch { width: 20px; height: 20px; float: left; margin-right: 10px; }
 
-.leaflet-popup-close-button { display: none; }
+/*============================================
+Pages
+============================================*/
+.page-title { padding-bottom: 0px; }
 
-.leaflet-popup-content-wrapper { pointer-events: none; }
+.page-content { padding-top: 10px; }
+.page-content p { line-height: 1.5em; }
 
 /*============================================
 footer
 ============================================*/
 .footer h1 { font-size: 16px; }
+.footer img { width: 80px; padding-right: 10px; float: left; }
+.footer li:nth-of-type(1) { padding-top: 1.7em; }
+.footer li { font-family: "Lato", sans-serif; font-weight: 700; line-height: 1em; }
+.footer li a { color: black; }
 
 /*============================================
 d3

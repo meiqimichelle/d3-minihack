@@ -11,39 +11,49 @@ if(!oldieCheck) {
 <script>
 if(!window.jQuery) {
   if(!oldieCheck) {
-    document.write('<script src="{{ site.url }}/assets/js/libs/jquery-2.0.2.min.js"><\/script>');
+    document.write('<script src="{{ site.url }}assets/js/libs/jquery-2.0.2.min.js"><\/script>');
   } else {
-    document.write('<script src="{{ site.url }}/assets/js/libs/jquery-1.10.1.min.js"><\/script>');
+    document.write('<script src="{{ site.url }}assets/js/libs/jquery-1.10.1.min.js"><\/script>');
   }
 }
+</script>
+
+<!--http://www.paulund.co.uk/use-jquery-to-highlight-active-menu-item-->
+<script>
+	jQuery(document).ready(function($){
+		var url = window.location.href;
+		$('.menu a').filter(function() {
+    		return this.href == url;
+		}).addClass('active');
+	});
 </script>
   
 	<!--
 	Include gumby.js followed by UI modules followed by gumby.init.js
 	Or concatenate and minify into a single file -->
-	<script gumby-touch="{{ site.url }}/assets/js/libs" src="{{ site.url }}/assets/js/libs/gumby.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.retina.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.fixed.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.skiplink.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.toggleswitch.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.checkbox.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.radiobtn.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.tabs.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/gumby.navbar.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/ui/jquery.validation.js"></script>
-	<script src="{{ site.url }}/assets/js/libs/gumby.init.js"></script>
+	<script gumby-touch="{{ site.url }}assets/js/libs" src="{{ site.url }}assets/js/libs/gumby.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.retina.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.fixed.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.skiplink.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.toggleswitch.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.checkbox.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.radiobtn.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.tabs.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/gumby.navbar.js"></script>
+	<script src="{{ site.url }}assets/js/libs/ui/jquery.validation.js"></script>
+	<script src="{{ site.url }}assets/js/libs/gumby.init.js"></script>
     
-    <!-- <script src="{{ site.url }}/assets/js/libs/Chart.min.js"></script> -->
+    <!-- <script src="{{ site.url }}assets/js/libs/Chart.min.js"></script> -->
 
 	<!--
 	gumby.min.js contains gumby.js, all UI modules and gumby.init.js
 	<script src="js/libs/gumby.min.js"></script> -->
-	<script src="{{ site.url }}/assets/js/plugins.js"></script>
-	<script src="{{ site.url }}/assets/js/main.js"></script>
+	<script src="{{ site.url }}assets/js/plugins.js"></script>
+	<script src="{{ site.url }}assets/js/main.js"></script>
 
 	<!--
-    <script src="{{ site.url }}/assets/js/classie.js"></script>
-    <script src="{{ site.url }}/assets/js/animateOnScroll.js"></script>-->
+    <script src="{{ site.url }}assets/js/classie.js"></script>
+    <script src="{{ site.url }}assets/js/animateOnScroll.js"></script>-->
 
 
 

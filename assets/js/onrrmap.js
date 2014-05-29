@@ -1,4 +1,6 @@
-  var mapdataviz = L.mapbox.map('map', 'examples.map-9ijuk24y')
+  //Mapbox map contols
+
+  var mapdataviz = L.mapbox.map('map', 'mhertzfeld.i8l68af5')
     .setView([37.8, -91], 4);
 
   var popup = new L.Popup({ autoPan: false });
@@ -21,14 +23,14 @@
 
   // get color depending on revenue
   function getColor(d) {
-      return d > 1000000000 ? '#8c2d04' :
-          d > 100000000  ? '#cc4c02' :
-          d > 10000000  ? '#ec7014' :
-          d > 1000000  ? '#fe9929' :
-          d > 100000   ? '#fec44f' :
-          d > 10   ? '#fee391' :
-          d = 0   ? '#fff7bc' :
-          '#ffffe5';
+      return d > 1000000000 ? '#4b0b07' :
+          d > 100000000  ? '#730600' :
+          d > 10000000  ? '#a30d05' :
+          d > 1000000   ? '#d3352e' :
+          d > 100000   ? '#e96b67' :
+          d > 10   ? '#db9795' :
+          d = 0   ? '#f2d6d5' :
+          '#f2d6d5';
   }
 
   function onEachFeature(feature, layer) {
@@ -92,3 +94,17 @@
 
     return '<span>Resource revenues from<br/>Federal lands by state, 2013</span><ul>' + labels.join('') + '</ul>';
   }
+
+
+  //Create group of layers to display in toggle list
+  var overlays = {
+      "2013": statesLayer,
+      "2012": statesData
+  };
+
+  //Add layer toggler
+  L.control.layers(null,overlays, {
+      collapsed:false,
+    }).addTo(mapdataviz);
+
+

@@ -1,20 +1,11 @@
-<nav class="fixNav animate" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-      <div class="fixNavWrapper">
-        <div class="row logo">
-            <div class="six columns">
-              <a href="{{ site.url }}/index.html"><img src="{{ site.url }}/assets/img/useiti_logo.jpg" alt="USEITI logo"></a>
-              <p>Your source for information on <br/>mineral extraction on public lands.</p>
-            </div>
-            <div class="four columns search">
-            </div>
-          </div>
-        <div class="row nav">
-            <ul class="push_six six columns">
-                    <li class="three columns what current"><a href="{{ site.url }}/index.html" itemprop="url"><div itemprop="name">What</div></a></li>
-                    <li class="three columns how"><a href="{{ site.url }}/how.html" itemprop="url"><div itemprop="name">How</div></a></li>
-                    <li class="three columns data"><a href="{{ site.url }}/data.html" itemprop="url"><div itemprop="name">Data</div></a></li>
-                    <li class="three columns reports"><a href="{{ site.url }}/reports.html" itemprop="url"><div itemprop="name">Reports</div></a></li>
-            </ul>
-          </div>
-      </div>
-    </nav>
+<nav class="nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+  <div class="row">
+    <ul class="twelve columns menu">
+      <a href="/about.html" itemprop="url"><li itemprop="name">About This Site</li></a>
+      <a href="/sectors.html" itemprop="url"><li itemprop="name">U.S. Natural Resource Sectors</li></a>
+      <a href="#" itemprop="url"><li itemprop="name">Something Else</li></a>
+      <a href="http://presidential-innovation-fellows.github.io/ridb-kibana/index.html#/dashboard/elasticsearch/Natural%20Resource%20Revenues%20by%20Company"><li itemprop="name">Filter &amp; Download Data</li></a>
+      {% if page.title != "Home" %}<a href="/index.html" itemprop="url"><li itemprop="name">Home</li></a>{% endif %}
+    </ul>
+  </div>
+</nav>
